@@ -1,0 +1,177 @@
+﻿Created At: 2026-06-20T11:05:23Z
+Completed At: 2026-06-20T11:05:24Z
+File Path: `file:///C:/Users/sujal/OneDrive/Desktop/Desktop/CHESS%20PORTFOLIO%201/register-event.html`
+Total Lines: 168
+Total Bytes: 13483
+Showing lines 1 to 168
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: <!DOCTYPE html>
+2: <html lang="en">
+3: <head>
+4: <meta charset="UTF-8">
+5: <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6: <meta name="view-transition" content="same-origin">
+7: <script src="https://cdn.tailwindcss.com">
+8: </script>
+9: <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js">
+10: </script>
+11: <link rel="preconnect" href="https://fonts.googleapis.com">
+12: <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+13: <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+14: <style> @view-transition { navigation: auto; } :root { --bg-deep: #050508; --bg-card: #0c0c14; --accent-silver: #e5e7eb; --accent-subtle: #4b5563; } body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050508 !important; color: #fff; overflow-x: hidden; line-height: 1.6; } .serif-title { font-family: 'Crimson Pro', serif; } .hero-mesh { background-image: radial-gradient(circle at 80% 20%, rgba(229, 231, 235, 0.08) 0%, rgba(0,0,0,0) 50%), radial-gradient(circle at 20% 80%, rgba(229, 231, 235, 0.05) 0%, rgba(0,0,0,0) 50%); } .silver-border { border: 1px solid rgba(229, 231, 235, 0.1); } .silver-gradient-text { background: linear-gradient(180deg, #fff 0%, #9ca3af 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding-bottom: 0.1em; margin-bottom: -0.1em; display: inline-block; } .glass-card { background: rgba(12, 12, 20, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); } .input-field { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.3s ease; } .input-field:focus { border-color: var(--accent-silver); outline: none; background: rgba(255, 255, 255, 0.05); box-shadow: 0 0 15px rgba(229, 231, 235, 0.05); } .ticket-stub { background-image: radial-gradient(circle at 0 50%, transparent 12px, rgba(12, 12, 20, 0.95) 12px), radial-gradient(circle at 100% 50%, transparent 12px, rgba(12, 12, 20, 0.95) 12px); background-position: left, right; background-size: 50% 100%; background-repeat: no-repeat; } </style>
+15: <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js">
+16: </script>
+17: <script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init>
+18: </script>
+19: </head>
+20: <body class="hero-mesh min-h-screen flex items-center justify-center">
+21: <script> function getEventsData() { return { 'gm-invitation': { title: 'Grandmaster Invitational', date: '28 Oct 2026', time: '18:00 GMT', type: 'Online', details: 'A high-stakes tournament for advanced players rated 2200+ ELO. Witness grandmaster opening strategies.' }, 'endgame-masterclass': { title: 'Endgame Mastery Masterclass', date: '30 Oct 2026', time: '19:30 GMT', type: 'Online', details: 'Interactive masterclass focused on pawn structures and endgame patterns, hosted by elite FIDE coaches.' }, 'weekly-blitz': { title: 'Weekly Blitz Arena', date: '04 Nov 2026', time: '17:00 GMT', type: 'Online', details: 'Our signature speed chess tournament with prizes for the top 3 spots. Fast, intense, and highly competitive.' }, 'winter-summit': { title: 'Winter Strategy Summit 2026', date: '15 Dec 2026', time: '10:00 GMT', type: 'In-Club', details: 'Our grand in-person gathering at Royal Knights Hall. Lectures, simultaneous exhibition matches, and networking dinner.' }, 'club-championship': { title: 'Royal Knights Club Championship 2026', date: '20 Nov 2026', time: '18:00 GMT', type: 'In-Club', details: 'The annual classical Swiss tournament to crown the club champion. Rated for ELO, 90+30 time control.' } }; } function initEventForm() { const urlParams = new URLSearchParams(window.location.search); const evCode = urlParams.get('event') || 'endgame-masterclass'; const events = getEventsData(); const currentEvent = events[evCode] || events['endgame-masterclass']; return { eventCode: evCode, event: currentEvent, name: '', email: '', phone: '', memberStatus: 'non-member', attendanceMode: currentEvent.type === 'Online' ? 'online' : 'in-club', processing: false, submitted: false, ticketNumber: '', submitForm() { this.processing = true; setTimeout(() => { this.processing = false; this.submitted = true; this.ticketNumber = 'RK-EV-' + Math.floor(100000 + Math.random() * 900000); // Confetti explosion confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 }, colors: ['#ffffff', '#e5e7eb', '#9ca3af', '#cca43b'] }); }, 2000); } }; } </script>
+22: <div v-scope="initEventForm()" class="w-full">
+23: <!-- Brand Top Header -->
+24: <header class="absolute top-0 left-0 right-0 p-6 md:p-8 flex items-center justify-between z-50">
+25: <a href="index.html" class="flex items-center gap-3">
+26: <div class="w-8 h-8 border border-white/10 rounded flex items-center justify-center">
+27: <iconify-icon icon="fa6-solid:chess-knight" class="text-white text-lg">
+28: </iconify-icon>
+29: </div>
+30: <div class="flex flex-col">
+31: <span class="font-bold text-[10px] tracking-[0.3em] uppercase text-white">Royal Knights</span>
+32: <span class="text-[7px] text-gray-500 font-medium tracking-[0.1em] uppercase">Est. 1924</span>
+33: </div>
+34: </a>
+35: <a href="events.html" class="text-xs text-white/40 hover:text-white uppercase tracking-widest transition-colors flex items-center gap-1.5 font-bold">
+36: <iconify-icon icon="lucide:arrow-left">
+37: </iconify-icon> Back to Events </a>
+38: </header>
+39: <main class="w-full max-w-[1440px] mx-auto px-6 md:px-12 pt-28 pb-12 min-h-screen flex items-center">
+40: <!-- Normal Form Mode -->
+41: <div v-if="!processing && !submitted" class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
+42: <!-- Left Side -->
+43: <div class="lg:col-span-6 space-y-8 text-left">
+44: <div class="inline-flex items-center gap-3">
+45: <span class="w-8 h-[1px] bg-white/30">
+46: </span>
+47: <span class="text-[10px] font-bold tracking-[0.4em] text-white/40 uppercase">Event Registration</span>
+48: </div>
+49: <h1 class="text-4xl sm:text-5xl md:text-6xl font-light tracking-tighter serif-title leading-tight silver-gradient-text"> Join Our Masterclass & Events </h1>
+50: <div class="card-glass p-8 rounded-[2rem] border border-white/10 relative overflow-hidden space-y-4 max-w-xl">
+51: <div class="flex items-center gap-3">
+52: <span class="px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full" :class="event.type === 'Online' ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'"> {{ event.type }} </span>
+53: <span class="text-[10px] text-white/40 font-bold uppercase tracking-widest">{{ event.date }} &bull; {{ event.time }}</span>
+54: </div>
+55: <h3 class="text-2xl font-light serif-title text-white">{{ event.title }}</h3>
+56: <p class="text-sm text-white/50 leading-relaxed font-light"> {{ event.details }} </p>
+57: </div>
+58: </div>
+59: <!-- Right Side -->
+60: <div class="lg:col-span-6 w-full max-w-xl mx-auto">
+61: <div class="glass-card p-8 md:p-12 rounded-[2rem] border border-white/5 relative overflow-hidden">
+62: <form @submit.prevent="submitForm" class="space-y-6 text-left">
+63: <h3 class="text-2xl font-light serif-title text-white mb-6">Securing Slot</h3>
+64: <!-- Full Name -->
+65: <div>
+66: <label for="name" class="block text-[10px] font-bold uppercase tracking-widest text-white/40 mb-2">Full Name</label>
+67: <input type="text" id="name" v-model="name" placeholder="e.g. John Doe" required class="w-full px-5 py-4 input-field rounded-xl text-white text-xs" style="min-height: 48px;" >
+68: </div>
+69: <!-- Email Address -->
+70: <div>
+71: <label for="email" class="block text-[10px] font-bold uppercase tracking-widest text-white/40 mb-2">Email Address</label>
+72: <input type="email" id="email" v-model="email" placeholder="e.g. john@domain.com" required class="w-full px-5 py-4 input-field rounded-xl text-white text-xs" style="min-height: 48px;" >
+73: </div>
+74: <!-- Phone Number -->
+75: <div>
+76: <label for="phone" class="block text-[10px] font-bold uppercase tracking-widest text-white/40 mb-2">Phone Number</label>
+77: <input type="tel" id="phone" v-model="phone" placeholder="e.g. +1 555-123-4567" required class="w-full px-5 py-4 input-field rounded-xl text-white text-xs" style="min-height: 48px;" >
+78: </div>
+79: <!-- Member Status -->
+80: <div>
+81: <span class="block text-[10px] font-bold uppercase tracking-widest text-white/40 mb-3">Club Membership Status</span>
+82: <div class="grid grid-cols-2 gap-3">
+83: <button type="button" @click="memberStatus = 'non-member'" :class="memberStatus === 'non-member' ? 'border-white bg-white/5 text-white' : 'border-white/10 text-white/40 hover:text-white/80'" class="py-3.5 border rounded-xl text-[11px] font-bold uppercase tracking-widest transition-all" > Non-Member </button>
+84: <button type="button" @click="memberStatus = 'member'" :class="memberStatus === 'member' ? 'border-white bg-white/5 text-white' : 'border-white/10 text-white/40 hover:text-white/80'" class="py-3.5 border rounded-xl text-[11px] font-bold uppercase tracking-widest transition-all" > Active Member </button>
+85: </div>
+86: </div>
+87: <!-- Attendance Mode -->
+88: <div v-if="event.type === 'In-Club'">
+89: <span class="block text-[10px] font-bold uppercase tracking-widest text-white/40 mb-3">Attendance Mode</span>
+90: <div class="grid grid-cols-2 gap-3">
+91: <button type="button" @click="attendanceMode = 'in-club'" :class="attendanceMode === 'in-club' ? 'border-white bg-white/5 text-white' : 'border-white/10 text-white/40 hover:text-white/80'" class="py-3.5 border rounded-xl text-[11px] font-bold uppercase tracking-widest transition-all" > In-Club </button>
+92: <button type="button" @click="attendanceMode = 'online'" :class="attendanceMode === 'online' ? 'border-white bg-white/5 text-white' : 'border-white/10 text-white/40 hover:text-white/80'" class="py-3.5 border rounded-xl text-[11px] font-bold uppercase tracking-widest transition-all" > Online Stream </button>
+93: </div>
+94: </div>
+95: <!-- Submit -->
+96: <div class="pt-4">
+97: <button type="submit" class="w-full py-4.5 bg-white text-black text-[11px] font-bold uppercase tracking-widest rounded-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer" style="min-height: 48px;" > Register For Event </button>
+98: </div>
+99: </form>
+100: </div>
+101: </div>
+102: </div>
+103: <!-- Processing Mode -->
+104: <div v-if="processing" class="w-full flex flex-col items-center justify-center space-y-6 animate-pulse">
+105: <div class="w-12 h-12 border-2 border-white/20 border-t-white rounded-full animate-spin">
+106: </div>
+107: <p class="text-sm font-bold uppercase tracking-[0.3em] text-white/60">Verifying Seat Availability...</p>
+108: </div>
+109: <!-- Success Ticket Mode -->
+110: <div v-if="submitted" class="w-full max-w-xl mx-auto animate-[fadeIn_0.5s_ease]">
+111: <div class="ticket-stub p-8 md:p-12 rounded-[2.5rem] border border-white/10 flex flex-col justify-between relative overflow-hidden bg-[#0c0c14] shadow-2xl">
+112: <!-- Top section -->
+113: <div class="border-b border-dashed border-white/10 pb-8 mb-8 text-left space-y-4">
+114: <div class="flex justify-between items-start">
+115: <div>
+116: <span class="text-[8px] font-bold uppercase tracking-[0.2em] text-white/30 block mb-1">Pass Number</span>
+117: <span class="text-xs font-mono font-bold text-white">{{ ticketNumber }}</span>
+118: </div>
+119: <div class="w-10 h-10 border border-white/10 rounded flex items-center justify-center flex-shrink-0">
+120: <iconify-icon icon="fa6-solid:chess-knight" class="text-white text-lg">
+121: </iconify-icon>
+122: </div>
+123: </div>
+124: <span class="px-2.5 py-0.5 text-[8px] font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full inline-block"> Confirmed Attendee </span>
+125: <h2 class="text-3xl font-light serif-title text-white tracking-tight">{{ event.title }}</h2>
+126: </div>
+127: <!-- Mid section -->
+128: <div class="grid grid-cols-2 gap-6 text-left mb-8 pb-8 border-b border-white/5">
+129: <div>
+130: <span class="text-[9px] font-bold uppercase tracking-widest text-white/30 block mb-1">Date & Time</span>
+131: <span class="text-xs text-white/80 font-light">{{ event.date }}</span>
+132: <span class="text-[10px] text-white/40 block font-light mt-0.5">{{ event.time }}</span>
+133: </div>
+134: <div>
+135: <span class="text-[9px] font-bold uppercase tracking-widest text-white/30 block mb-1">Attendee</span>
+136: <span class="text-xs text-white/80 font-semibold">{{ name }}</span>
+137: <span class="text-[10px] text-white/40 block font-light mt-0.5">{{ email }}</span>
+138: </div>
+139: <div>
+140: <span class="text-[9px] font-bold uppercase tracking-widest text-white/30 block mb-1">Status</span>
+141: <span class="text-xs text-white/80 font-light capitalize">{{ memberStatus }}</span>
+142: </div>
+143: <div>
+144: <span class="text-[9px] font-bold uppercase tracking-widest text-white/30 block mb-1">Mode</span>
+145: <span class="text-xs text-white/80 font-light capitalize">{{ attendanceMode }}</span>
+146: </div>
+147: </div>
+148: <!-- Bottom barcode section -->
+149: <div class="flex flex-col items-center justify-center space-y-4">
+150: <div class="flex items-center gap-1 opacity-20">
+151: <span v-for="n in 32" :key="n" :style="{ width: (n % 3 === 0 ? '4px' : n % 2 === 0 ? '2px' : '1px'), height: '40px' }" class="bg-white">
+152: </span>
+153: </div>
+154: <span class="text-[8px] font-mono tracking-[0.3em] text-white/30">{{ ticketNumber }}</span>
+155: </div>
+156: <div class="mt-8 pt-4">
+157: <button onclick="window.print()" class="px-6 py-2.5 bg-white/5 border border-white/10 hover:bg-white hover:text-black text-[9px] font-bold uppercase tracking-widest rounded-full transition-all cursor-pointer">Print Event Pass</button>
+158: </div>
+159: </div>
+160: </div>
+161: </main>
+162: </div>
+163: </body>
+164: </html>
+165: 
+166: 
+167: 
+168: 
+The above content shows the entire, complete file contents of the requested file.
+

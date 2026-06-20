@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="view-transition" content="same-origin">
+<script src="https://cdn.tailwindcss.com">
+</script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js">
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>@view-transition { navigation: auto; }:root { --bg-deep: #050508; --bg-card: #0c0c14; --accent-silver: #e5e7eb; --accent-subtle: #4b5563; }body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050508 !important; color: #fff; overflow-x: hidden; }.serif-title { font-family: 'Crimson Pro', serif; }.hero-mesh { background-image: radial-gradient(circle at 80% 20%, rgba(229, 231, 235, 0.08) 0%, rgba(0,0,0,0) 50%), radial-gradient(circle at 20% 80%, rgba(229, 231, 235, 0.05) 0%, rgba(0,0,0,0) 50%); }.silver-border { border: 1px solid rgba(229, 231, 235, 0.1); }.silver-gradient-text { background: linear-gradient(180deg, #fff 0%, #9ca3af 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }.glass-nav { background: rgba(5, 5, 8, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }.reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }.reveal.active { opacity: 1; transform: translateY(0); }.btn-hover { transition: transform 0.2s ease, background-color 0.2s ease; }.btn-hover:hover { transform: scale(1.02); }.btn-hover:active { transform: scale(0.98); }::-webkit-scrollbar { width: 6px; }::-webkit-scrollbar-track { background: var(--bg-deep); }::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }</style>
+<style>sd-component { display: block; }</style>
+<script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init>
+</script>
+</head>
+<body>
+<div class="min-h-screen flex flex-col hero-mesh">
+<!-- component: HeaderNavigation (3fc0b93f-2469-4c46-b9c1-69537979aa14) -->
+<div v-scope="{ ...{&quot;activeItem&quot;:&quot;events&quot;,&quot;homeHref&quot;:&quot;https://p.superdesign.dev/draft/f6f2bbed-90d7-4b19-965c-e7078e227dba&quot;,&quot;membershipHref&quot;:&quot;https://draft-0396e92e-04de-4d97-a1cb-8b2c19289382.preview.superdesign.dev&quot;,&quot;eventsHref&quot;:&quot;https://draft-79779cc8-e6a5-406e-88bc-538e4a21b895.preview.superdesign.dev&quot;,&quot;newsHref&quot;:&quot;#&quot;,&quot;aboutHref&quot;:&quot;#&quot;,&quot;contactHref&quot;:&quot;#&quot;,&quot;ctaHref&quot;:&quot;#join&quot;,&quot;mobileMenuHref&quot;:&quot;#mobile-menu&quot;,&quot;isMobileMenuOpen&quot;:false}, $emit() {} }">
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#050508]/95 backdrop-blur-[20px] border-b border-white/5">
+<div class="max-w-[1440px] mx-auto px-5 md:px-12 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 border border-[#e5e7eb]/10 rounded flex items-center justify-center">
+<iconify-icon icon="fa6-solid:chess-knight" class="text-white text-xl">
+</iconify-icon>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-[10px] sm:text-xs tracking-[0.3em] uppercase">Royal Knights</span>
+<span class="text-[8px] sm:text-[9px] text-gray-500 font-medium tracking-[0.1em] uppercase">Est. 1924</span>
+</div>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden lg:flex items-center gap-10">
+<a :href="homeHref" class="text-[13px] font-medium tracking-wide transition-all" :class="activeItem === 'home' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Home</a>
+<a :href="membershipHref" class="text-[13px] font-medium tracking-wide transition-all" :class="activeItem === 'membership' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Membership</a>
+          <a :href="coachesHref" class="text-[13px] font-medium tracking-wide transition-all" :class="activeItem === 'coaches' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Coaches</a>
+<a :href="eventsHref" class="text-[13px] font-medium tracking-wide transition-all" :class="activeItem === 'events' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Events</a>
+<a :href="newsHref" class="text-[13px] font-medium tracking-wide transition-all" :class="activeItem === 'news' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">News</a>
+<a :href="aboutHref" class="text-[13px] font-medium tracking-wide transition-all" :class="activeItem === 'about' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">About</a>
+<a :href="contactHref" class="text-[13px] font-medium tracking-wide transition-all" :class="activeItem === 'contact' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button @click="$emit('search')" class="p-2 text-white/40 cursor-pointer hover:text-white transition-colors hidden sm:block">
+<iconify-icon icon="lucide:search" class="text-xl">
+</iconify-icon>
+</button>
+<a :href="ctaHref" class="hidden md:flex px-7 py-3 bg-white text-black text-[12px] font-bold uppercase tracking-widest rounded-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] min-h-[44px] items-center">Join Club</a>
+<button @click="isMobileMenuOpen = !isMobileMenuOpen; $emit('toggleMobileMenu', isMobileMenuOpen)" :aria-label="isMobileMenuOpen ? 'Close menu' : 'Open menu'" :aria-expanded="isMobileMenuOpen" class="lg:hidden w-11 h-11 p-2 text-white/70 cursor-pointer transition-all duration-200 hover:text-white hover:bg-white/5 active:scale-95 flex items-center justify-center rounded" style="min-height: 44px; min-width: 44px;">
+<iconify-icon icon="lucide:menu" class="text-2xl transition-transform duration-200" :style="{ transform: isMobileMenuOpen ? 'rotate(0deg)' : 'rotate(0deg)' }">
+</iconify-icon>
+</button>
+</div>
+</div>
+</header>
+</div>
+<!-- /component: HeaderNavigation (3fc0b93f-2469-4c46-b9c1-69537979aa14) -->
+<!-- component: MobileMenu (b2f2deca-fa30-4204-83f3-d6ec91cbdf61) -->
+<div v-scope="{ ...{&quot;isOpen&quot;:false,&quot;activeItem&quot;:&quot;events&quot;,&quot;homeHref&quot;:&quot;https://p.superdesign.dev/draft/f6f2bbed-90d7-4b19-965c-e7078e227dba&quot;,&quot;membershipHref&quot;:&quot;https://draft-0396e92e-04de-4d97-a1cb-8b2c19289382.preview.superdesign.dev&quot;,&quot;eventsHref&quot;:&quot;https://draft-79779cc8-e6a5-406e-88bc-538e4a21b895.preview.superdesign.dev&quot;,&quot;newsHref&quot;:&quot;#&quot;,&quot;contactHref&quot;:&quot;#&quot;,&quot;joinHref&quot;:&quot;#join&quot;}, $emit() {} }">
+<div :class="{ 'fixed inset-0 overflow-hidden': isOpen, 'pointer-events-none': !isOpen }" class="z-[60] lg:hidden">
+<!-- Overlay backdrop -->
+<div v-show="isOpen" @click="$emit('close')" class="fixed inset-0 bg-black/50 transition-opacity duration-300" :class="{ 'opacity-100': isOpen, 'opacity-0': !isOpen }" >
+</div>
+<!-- Mobile menu panel -->
+<div v-show="isOpen" class="fixed right-0 top-0 h-screen w-full max-w-sm bg-[#050508] flex flex-col transition-transform duration-300 ease-out" :style="{ transform: isOpen ? 'translateX(0)' : 'translateX(100%)' }" >
+<!-- Header with logo and close button -->
+<div class="flex justify-between items-center p-6 border-b border-white/10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 border border-white/10 rounded flex items-center justify-center">
+<iconify-icon icon="fa6-solid:chess-knight" class="text-white text-lg">
+</iconify-icon>
+</div>
+<span class="font-bold text-xs tracking-[0.3em] uppercase text-white">Royal Knights</span>
+</div>
+<button @click="$emit('close')" class="p-4 min-h-[48px] min-w-[48px] flex items-center justify-center bg-transparent border-none cursor-pointer hover:bg-white/5 rounded transition-colors" aria-label="Close menu" >
+<iconify-icon icon="lucide:x" class="text-3xl text-white">
+</iconify-icon>
+</button>
+</div>
+<!-- Navigation menu -->
+<nav class="flex-1 overflow-y-auto p-6">
+<div class="flex flex-col gap-1">
+<!-- Home -->
+<a :href="homeHref" @click="$emit('close')" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded min-h-[56px] hover:bg-white/5" :class="{ 'text-white bg-white/10': activeItem === 'home', 'text-white/70': activeItem !== 'home' }" >
+<iconify-icon icon="lucide:home" class="text-xl flex-shrink-0" :class="{ 'text-white': activeItem === 'home', 'text-white/50': activeItem !== 'home' }">
+</iconify-icon>
+<span>Home</span>
+</a>
+<!-- Membership -->
+<a :href="membershipHref" @click="$emit('close')" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded min-h-[56px] hover:bg-white/5" :class="{ 'text-white bg-white/10': activeItem === 'membership', 'text-white/70': activeItem !== 'membership' }" >
+<iconify-icon icon="lucide:award" class="text-xl flex-shrink-0" :class="{ 'text-white': activeItem === 'membership', 'text-white/50': activeItem !== 'membership' }">
+</iconify-icon>
+<span>Membership</span>
+</a>
+<!-- Events -->
+<a :href="eventsHref" @click="$emit('close')" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded min-h-[56px] hover:bg-white/5" :class="{ 'text-white bg-white/10': activeItem === 'events', 'text-white/70': activeItem !== 'events' }" >
+<iconify-icon icon="lucide:calendar" class="text-xl flex-shrink-0" :class="{ 'text-white': activeItem === 'events', 'text-white/50': activeItem !== 'events' }">
+</iconify-icon>
+<span>Events</span>
+</a>
+<!-- News -->
+<a :href="newsHref" @click="$emit('close')" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded min-h-[56px] hover:bg-white/5" :class="{ 'text-white bg-white/10': activeItem === 'news', 'text-white/70': activeItem !== 'news' }" >
+<iconify-icon icon="lucide:newspaper" class="text-xl flex-shrink-0" :class="{ 'text-white': activeItem === 'news', 'text-white/50': activeItem !== 'news' }">
+</iconify-icon>
+<span>News</span>
+</a>
+<!-- Contact -->
+<a :href="contactHref" @click="$emit('close')" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded min-h-[56px] hover:bg-white/5" :class="{ 'text-white bg-white/10': activeItem === 'contact', 'text-white/70': activeItem !== 'contact' }" >
+<iconify-icon icon="lucide:mail" class="text-xl flex-shrink-0" :class="{ 'text-white': activeItem === 'contact', 'text-white/50': activeItem !== 'contact' }">
+</iconify-icon>
+<span>Contact</span>
+</a>
+</div>
+</nav>
+<!-- Footer with CTA button -->
+<div class="p-6 border-t border-white/10">
+<a :href="joinHref" @click="$emit('close')" class="w-full py-4 px-6 bg-white text-black text-center font-semibold uppercase tracking-widest block rounded-sm text-sm hover:bg-gray-100 active:bg-gray-200 transition-colors min-h-[56px] flex items-center justify-center" > Join the Elite Club </a>
+</div>
+</div>
+</div>
+</div>
+<!-- /component: MobileMenu (b2f2deca-fa30-4204-83f3-d6ec91cbdf61) -->
+<main class="flex-1">
+<section class="relative pt-40 pb-20 px-5 md:px-12">
+<div class="container mx-auto max-w-[1440px]">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+<div class="max-w-3xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="w-8 h-[1px] bg-white/30">
+</span>
+<span class="text-[10px] font-bold tracking-[0.4em] text-white/40 uppercase">Club Schedule</span>
+</div>
+<h1 class="text-5xl sm:text-7xl md:text-8xl font-light tracking-tighter leading-tight mb-6 serif-title silver-gradient-text">Events & Competitions</h1>
+<p class="text-lg md:text-xl text-white/50 font-light leading-relaxed">Join prestigious tournaments, master the game through expert-led sessions, and compete with the elite global chess community.</p>
+</div>
+<div class="flex items-center gap-4 py-4 md:py-0">
+<div class="text-[11px] font-bold uppercase tracking-widest text-white/30">Last updated: Oct 2024</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-8 space-y-12">
+<div class="flex overflow-x-auto pb-4 gap-6 scrollbar-hide border-b border-white/5">
+<a href="#" class="text-sm font-bold uppercase tracking-widest pb-4 border-b-2 border-white text-white whitespace-nowrap">All Events</a>
+<a href="#" class="text-sm font-bold uppercase tracking-widest pb-4 border-b-2 border-transparent text-white/30 hover:text-white transition-all whitespace-nowrap">Tournaments</a>
+<a href="#" class="text-sm font-bold uppercase tracking-widest pb-4 border-b-2 border-transparent text-white/30 hover:text-white transition-all whitespace-nowrap">Masterclasses</a>
+<a href="#" class="text-sm font-bold uppercase tracking-widest pb-4 border-b-2 border-transparent text-white/30 hover:text-white transition-all whitespace-nowrap">Competitions</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="group bg-white/[0.02] silver-border rounded-2xl p-6 transition-all hover:bg-white/[0.04]">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-6">
+<img src="https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+<div class="absolute top-4 right-4 bg-white/90 text-black px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Advanced</div>
+</div>
+<div class="mb-6">
+<div class="flex items-center gap-2 text-white/40 text-[10px] uppercase tracking-widest mb-2">
+<iconify-icon icon="lucide:calendar">
+</iconify-icon> Oct 28, 2024 &bull; 18:00 GMT</div>
+<h3 class="text-2xl font-light serif-title mb-2">Grandmaster Invitational</h3>
+<p class="text-sm text-white/40 font-light line-clamp-2">A high-stakes tournament for members ranked 2200+ ELO.</p>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-white/5">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-white/30">Entry Fee</span>
+<span class="text-white font-medium">$45.00</span>
+</div>
+<a href="#" class="px-6 py-2.5 bg-white text-black text-[11px] font-bold uppercase tracking-widest rounded transition-all hover:scale-105 active:scale-95">Register</a>
+</div>
+</div>
+<div class="group bg-white/[0.02] silver-border rounded-2xl p-6 transition-all hover:bg-white/[0.04]">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-6">
+<img src="https://images.unsplash.com/photo-1580541832626-2a7131ee809f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+<div class="absolute top-4 right-4 bg-white/90 text-black px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">All Levels</div>
+</div>
+<div class="mb-6">
+<div class="flex items-center gap-2 text-white/40 text-[10px] uppercase tracking-widest mb-2">
+<iconify-icon icon="lucide:video">
+</iconify-icon> Oct 30, 2024 &bull; 19:30 GMT</div>
+<h3 class="text-2xl font-light serif-title mb-2">Endgame Mastery</h3>
+<p class="text-sm text-white/40 font-light line-clamp-2">Interactive masterclass focused on pawn structures and endgame patterns.</p>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-white/5">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-white/30">Entry Fee</span>
+<span class="text-white font-medium">Free for Elite</span>
+</div>
+<a href="#" class="px-6 py-2.5 border border-white/20 text-white text-[11px] font-bold uppercase tracking-widest rounded transition-all hover:border-white hover:bg-white/5">Join Session</a>
+</div>
+</div>
+<div class="group bg-white/[0.02] silver-border rounded-2xl p-6 transition-all hover:bg-white/[0.04]">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-6">
+<img src="https://images.unsplash.com/photo-1544098485-2a212ec5544e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+<div class="absolute top-4 right-4 bg-white/90 text-black px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Intermediate</div>
+</div>
+<div class="mb-6">
+<div class="flex items-center gap-2 text-white/40 text-[10px] uppercase tracking-widest mb-2">
+<iconify-icon icon="lucide:trophy">
+</iconify-icon> Nov 04, 2024 &bull; 17:00 GMT</div>
+<h3 class="text-2xl font-light serif-title mb-2">Weekly Blitz Arena</h3>
+<p class="text-sm text-white/40 font-light line-clamp-2">Our signature weekly speed chess tournament with prizes for top 3.</p>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-white/5">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-white/30">Entry Fee</span>
+<span class="text-white font-medium">$10.00</span>
+</div>
+<a href="#" class="px-6 py-2.5 bg-white text-black text-[11px] font-bold uppercase tracking-widest rounded transition-all hover:scale-105 active:scale-95">Register</a>
+</div>
+</div>
+<div class="group bg-white/[0.02] silver-border rounded-2xl p-6 transition-all hover:bg-white/[0.04]">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-6">
+<img src="https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+<div class="absolute top-4 right-4 bg-white/90 text-black px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Beginner</div>
+</div>
+<div class="mb-6">
+<div class="flex items-center gap-2 text-white/40 text-[10px] uppercase tracking-widest mb-2">
+<iconify-icon icon="lucide:award">
+</iconify-icon> Nov 06, 2024 &bull; 16:00 GMT</div>
+<h3 class="text-2xl font-light serif-title mb-2">Chess Fundamentals</h3>
+<p class="text-sm text-white/40 font-light line-clamp-2">Perfect for those starting their journey into the royal game.</p>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-white/5">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-white/30">Entry Fee</span>
+<span class="text-white font-medium">Free</span>
+</div>
+<a href="#" class="px-6 py-2.5 border border-white/20 text-white text-[11px] font-bold uppercase tracking-widest rounded transition-all hover:border-white hover:bg-white/5">Join Free</a>
+</div>
+</div>
+</div>
+</div>
+<aside class="lg:col-span-4 space-y-8">
+<div class="bg-white/[0.03] silver-border rounded-2xl p-8">
+<h4 class="text-xs font-bold uppercase tracking-[0.3em] mb-6 text-white/40">Calendar View</h4>
+<div class="flex items-center justify-between mb-6">
+<span class="font-medium">October 2024</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10">
+<iconify-icon icon="lucide:chevron-left">
+</iconify-icon>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10">
+<iconify-icon icon="lucide:chevron-right">
+</iconify-icon>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-2 mb-4 text-center">
+<div class="text-[10px] text-white/20 font-bold uppercase">Mo</div>
+<div class="text-[10px] text-white/20 font-bold uppercase">Tu</div>
+<div class="text-[10px] text-white/20 font-bold uppercase">We</div>
+<div class="text-[10px] text-white/20 font-bold uppercase">Th</div>
+<div class="text-[10px] text-white/20 font-bold uppercase">Fr</div>
+<div class="text-[10px] text-white/20 font-bold uppercase text-white/40">Sa</div>
+<div class="text-[10px] text-white/20 font-bold uppercase text-white/40">Su</div>
+<div class="text-xs py-2 text-white/10">24</div>
+<div class="text-xs py-2 text-white/10">25</div>
+<div class="text-xs py-2">1</div>
+<div class="text-xs py-2">2</div>
+<div class="text-xs py-2">3</div>
+<div class="text-xs py-2">4</div>
+<div class="text-xs py-2">5</div>
+<div class="text-xs py-2">6</div>
+<div class="text-xs py-2">7</div>
+<div class="text-xs py-2">8</div>
+<div class="text-xs py-2">9</div>
+<div class="text-xs py-2">10</div>
+<div class="text-xs py-2">11</div>
+<div class="text-xs py-2">12</div>
+<div class="text-xs py-2">13</div>
+<div class="text-xs py-2">14</div>
+<div class="text-xs py-2">15</div>
+<div class="text-xs py-2">16</div>
+<div class="text-xs py-2">17</div>
+<div class="text-xs py-2">18</div>
+<div class="text-xs py-2">19</div>
+<div class="text-xs py-2">20</div>
+<div class="text-xs py-2">21</div>
+<div class="text-xs py-2">22</div>
+<div class="text-xs py-2">23</div>
+<div class="text-xs py-2">24</div>
+<div class="text-xs py-2">25</div>
+<div class="text-xs py-2">26</div>
+<div class="text-xs py-2 font-bold bg-white text-black rounded-full">27</div>
+<div class="text-xs py-2 relative">28 <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-white">
+</span>
+</div>
+<div class="text-xs py-2">29</div>
+<div class="text-xs py-2 relative">30 <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-white">
+</span>
+</div>
+<div class="text-xs py-2">31</div>
+<div class="text-xs py-2 text-white/10">1</div>
+<div class="text-xs py-2 text-white/10">2</div>
+</div>
+</div>
+<div class="bg-white text-black rounded-2xl p-8">
+<iconify-icon icon="lucide:sparkles" class="text-3xl mb-6">
+</iconify-icon>
+<h4 class="text-xl font-bold tracking-tight mb-4">Custom Coaching</h4>
+<p class="text-sm text-black/60 leading-relaxed mb-6">Want personal training? Our Grandmasters are available for one-on-one sessions.</p>
+<a href="#" class="inline-block text-[11px] font-bold uppercase tracking-widest border-b-2 border-black pb-1">Inquire Now</a>
+</div>
+</aside>
+</div>
+</div>
+</section>
+<section class="py-24 px-5 md:px-12 bg-white text-black">
+<div class="container mx-auto max-w-[1440px]">
+<div class="flex flex-col lg:grid lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-6">
+<div class="flex items-center gap-3 mb-6">
+<span class="w-8 h-[2px] bg-black">
+</span>
+<span class="text-[10px] font-bold tracking-[0.4em] uppercase">Next Highlight Event</span>
+</div>
+<h2 class="text-4xl md:text-6xl font-light tracking-tighter serif-title leading-tight mb-8">Winter Strategy Summit 2024</h2>
+<div class="space-y-6 mb-10">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100" class="w-full h-full object-cover">
+</div>
+<div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-gray-400 block mb-1">Keynote Speaker</span>
+<p class="font-medium">GM Magnus Carlsen</p>
+<p class="text-sm text-gray-500">Five-time World Chess Champion</p>
+</div>
+</div>
+<p class="text-lg text-gray-600 font-light leading-relaxed">Three days of intensive workshops, simultaneous exhibitions, and strategy deep-dives. This is the year's most anticipated club gathering.</p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-6">
+<a href="#" class="w-full sm:w-auto px-10 py-4 bg-black text-white text-[12px] font-bold uppercase tracking-widest rounded transition-all hover:bg-gray-800">Secure Your Ticket</a>
+<div class="flex items-center gap-2">
+<iconify-icon icon="lucide:users" class="text-gray-400">
+</iconify-icon>
+<span class="text-[11px] font-medium tracking-widest uppercase text-gray-400">12 Slots Remaining</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 w-full">
+<div class="relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl">
+<img src="https://images.unsplash.com/photo-1543756070-dd3109556b0e?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105">
+<div class="absolute bottom-8 left-8 bg-black/80 backdrop-blur-md text-white p-6 rounded-2xl">
+<div class="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-2">Location</div>
+<div class="text-lg font-medium">Royal Knights Hall, London</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- component: Footer (14fe1a52-2ef6-44cb-9a11-c9c89675d742) -->
+<div v-scope="{ ...{&quot;socialFbHref&quot;:&quot;#facebook&quot;,&quot;socialTwHref&quot;:&quot;#twitter&quot;,&quot;socialIgHref&quot;:&quot;#instagram&quot;,&quot;privacyHref&quot;:&quot;#privacy&quot;,&quot;termsHref&quot;:&quot;#terms&quot;,&quot;contactHref&quot;:&quot;#contact&quot;}, $emit() {} }">
+<footer class="py-16 md:py-24 px-5 md:px-12 border-t border-white/5">
+<div class="container mx-auto max-w-[1440px] flex flex-col md:flex-row justify-between items-center md:items-start gap-12">
+<div class="flex flex-col items-center md:items-start gap-6 text-center md:text-left">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 border border-white/10 rounded-sm flex items-center justify-center opacity-40">
+<iconify-icon icon="fa6-solid:chess-knight" class="text-white text-base">
+</iconify-icon>
+</div>
+<span class="text-[12px] font-bold tracking-[0.4em] uppercase opacity-40">Royal Knights</span>
+</div>
+<p class="text-base font-light text-white/30 max-w-sm leading-relaxed"> The world's most prestigious digital arena for strategic mastery and competition. Est. 1924. </p>
+<div class="flex gap-8 mt-2">
+<a :href="socialFbHref" id="social-fb" class="text-white/20 hover:text-white transition-all p-2 min-h-[44px] flex items-center">
+<iconify-icon icon="brandico:facebook-rect" class="text-2xl">
+</iconify-icon>
+</a>
+<a :href="socialTwHref" id="social-tw" class="text-white/20 hover:text-white transition-all p-2 min-h-[44px] flex items-center">
+<iconify-icon icon="brandico:twitter-bird" class="text-2xl">
+</iconify-icon>
+</a>
+<a :href="socialIgHref" id="social-ig" class="text-white/20 hover:text-white transition-all p-2 min-h-[44px] flex items-center">
+<iconify-icon icon="brandico:instagram" class="text-2xl">
+</iconify-icon>
+</a>
+</div>
+</div>
+<div class="flex flex-col items-center md:items-end gap-2">
+<p class="text-white/40 text-[12px] font-light tracking-[0.2em] uppercase mb-1"> &copy; 2024 Royal Knights Chess Club </p>
+<div class="flex gap-6 mt-4">
+<a :href="privacyHref" class="text-[11px] text-white/20 uppercase tracking-widest hover:text-white transition-colors">Privacy</a>
+<a :href="termsHref" class="text-[11px] text-white/20 uppercase tracking-widest hover:text-white transition-colors">Terms</a>
+<a :href="contactHref" class="text-[11px] text-white/20 uppercase tracking-widest hover:text-white transition-colors">Contact</a>
+</div>
+<p class="text-white/10 text-[10px] font-light uppercase tracking-widest mt-8 hidden sm:block"> Strategy &bull; Discipline &bull; Mastery </p>
+</div>
+</div>
+</footer>
+</div>
+<!-- /component: Footer (14fe1a52-2ef6-44cb-9a11-c9c89675d742) -->
+</div>
+<script> const observerOptions = { threshold: 0.1 }; const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("active"); } }); }, observerOptions); document.addEventListener("DOMContentLoaded", () => { const revealElements = document.querySelectorAll("section, .group, .bg-white/[0.03]"); revealElements.forEach(el => { el.classList.add("reveal"); observer.observe(el); }); // Mobile Menu State Management let mobileMenuOpen = false; const initializeMobileMenu = () => { const menu = document.getElementById('mobile-menu'); const openBtn = document.getElementById('open-menu-btn'); const closeBtn = document.getElementById('close-menu-btn'); const body = document.body; if (!menu || !openBtn) return; const updateMenuDisplay = () => { if (mobileMenuOpen) { menu.style.display = 'flex'; // Force reflow to ensure transition runs menu.offsetHeight; menu.classList.add('open'); body.classList.add('overflow-hidden'); } else { menu.classList.remove('open'); body.classList.remove('overflow-hidden'); // Hide element after transition completes setTimeout(() => { if (!mobileMenuOpen) menu.style.display = 'none'; }, 400); } }; const toggleMenu = (state) => { mobileMenuOpen = state; updateMenuDisplay(); }; // Listeners openBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); toggleMenu(true); }); if (closeBtn) { closeBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); toggleMenu(false); }); } // Backdrop click functionality menu.addEventListener('click', (e) => { if (e.target === menu) { toggleMenu(false); } }); // Close on any navigation link click const menuLinkIds = ['mobile-home', 'mobile-membership', 'mobile-events', 'mobile-news', 'mobile-contact', 'mobile-join-btn']; menuLinkIds.forEach(id => { const link = document.getElementById(id); if (link) { link.addEventListener('click', () => toggleMenu(false)); } }); }; // Run initialization after a small delay to ensure all DOM elements/components are rendered setTimeout(initializeMobileMenu, 100); }); </script>
+</body>
+</html>","title":"Royal Knights - Events & Competitions","description":"A premium events calendar page with filtering tabs, a mini-calendar view, and high-fidelity event cards. Features a responsive grid layout and a featured summit highlight section using a clean dark-to-light aesthetic transition.","width":1440,"height":2400}
+
+

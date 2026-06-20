@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- White Flash Fix -->
+  <style>
+    html, body {
+      background-color: #050508 !important;
+      background: #050508 !important;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @view-transition { navigation: auto; }
+    :root {
+      --bg-deep: #050508;
+      --bg-card: #0c0c14;
+      --accent-silver: #e5e7eb;
+      --accent-subtle: #4b5563;
+    }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #050508 !important;
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    .serif-title {
+      font-family: 'Crimson Pro', serif;
+    }
+    
+    .hero-mesh {
+      background-image: radial-gradient(circle at 80% 20%, rgba(229, 231, 235, 0.08) 0%, rgba(0,0,0,0) 50%),
+                  radial-gradient(circle at 20% 80%, rgba(229, 231, 235, 0.05) 0%, rgba(0,0,0,0) 50%);
+    }
+    
+    .silver-border {
+      border: 1px solid rgba(229, 231, 235, 0.1);
+    }
+    
+    .silver-gradient-text {
+      background: linear-gradient(180deg, #fff 0%, #9ca3af 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding-bottom: 0.1em;
+      margin-bottom: -0.1em;
+      display: inline-block;
+    }
+    
+    .card-glass {
+      background: rgba(12, 12, 20, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-glass:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-4px);
+    }
+    
+    .glass-card {
+      background: rgba(12, 12, 20, 0.65);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Fade animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    
+    img {
+      filter: grayscale(100%);
+      transition: filter 0.5s ease, transform 0.5s ease;
+    }
+    img:hover {
+      filter: grayscale(85%);
+      transform: scale(1.02);
+    }
+  
+[v-cloak] { display: none !important; }
+</style>
+  <script>
+    function parseFEN(fen) {
+      const pieces = {
+        r: 'fa6-solid:chess-rook', n: 'fa6-solid:chess-knight', b: 'fa6-solid:chess-bishop',
+        q: 'fa6-solid:chess-queen', k: 'fa6-solid:chess-king', p: 'fa6-solid:chess-pawn',
+        R: 'fa6-solid:chess-rook', N: 'fa6-solid:chess-knight', B: 'fa6-solid:chess-bishop',
+        Q: 'fa6-solid:chess-queen', K: 'fa6-solid:chess-king', P: 'fa6-solid:chess-pawn'
+      };
+      
+      const newBoard = Array(64).fill(null);
+      const rows = fen.split(' ')[0].split('/');
+      let idx = 0;
+      for (let r = 0; r < 8; r++) {
+        const row = rows[r];
+        for (let c = 0; c < row.length; c++) {
+          const char = row[c];
+          if (isNaN(char)) {
+            const isWhite = char === char.toUpperCase();
+            newBoard[idx] = {
+              type: char.toLowerCase(),
+              color: isWhite ? 'white' : 'black',
+              icon: pieces[char]
+            };
+            idx++;
+          } else {
+            idx += parseInt(char);
+          }
+        }
+      }
+      return newBoard;
+    }
+
+    function getArticlesData() {
+      const articles = [
+        {
+          id: 'kasparov-topalov',
+          link: 'blog-post-1.html',
+          title: 'The Immortal Queen Sacrifice: Kasparov vs Topalov 1999',
+          category: 'Tactics',
+          date: 'June 15, 2026',
+          readTime: '12 Min Read',
+          author: 'GM Alex Petrov',
+          authorRole: 'Senior Coach',
+          authorInitials: 'AP',
+          excerpt: 'An in-depth analysis of Garry Kasparov\'s legendary rook sacrifice and subsequent queen maneuvers against Veselin Topalov, widely regarded as one of the greatest games ever played.',
+          initialFEN: 'b2r3r/k4p1p/p2q1np1/Np1P4/3p1Q2/P4PPB/1PP4P/1K1RR3 w - - 0 24',
+          coverImage: 'blog-img-1.jpg'
+        },
+        {
+          id: 'byrne-fischer',
+          link: 'blog-post-2.html',
+          title: 'Fischer\'s Game of the Century: Donald Byrne vs Bobby Fischer (1956)',
+          category: 'Tactics',
+          date: 'June 10, 2026',
+          readTime: '10 Min Read',
+          author: 'GM Alex Petrov',
+          authorRole: 'Senior Coach',
+          authorInitials: 'AP',
+          excerpt: 'Step-by-step tactical breakdown of 13-year-old Bobby Fischer\'s stunning queen sacrifice and devastating minor piece coordination.',
+          initialFEN: 'r3r1k1/pp3pbp/1qp3p1/2B5/2BP2b1/Q1n2N2/P4PPP/3R1K1R b - - 0 17',
+          coverImage: 'blog-img-2.jpg'
+        },
+        {
+          id: 'karpov-kasparov',
+          link: 'blog-post-3.html',
+          title: 'The Outpost Masterclass: Karpov vs Kasparov 1985 (Game 16)',
+          category: 'Positional',
+          date: 'June 02, 2026',
+          readTime: '15 Min Read',
+          author: 'GM Alex Petrov',
+          authorRole: 'Senior Coach',
+          authorInitials: 'AP',
+          excerpt: 'Analysis of Garry Kasparov\'s legendary "octopus" knight outpost on d3 which completely paralyzed Karpov\'s position.',
+          initialFEN: 'r2qr1k1/5ppp/p4n2/1pbP1bB1/1n6/N1N2B2/PP1Q1PPP/3R1RK1 b - - 0 16',
+          coverImage: 'blog-img-3.jpg'
+        },
+        {
+          id: 'fischer-spassky',
+          link: 'blog-post-4.html',
+          title: 'The Match of the Century: Bobby Fischer vs Boris Spassky 1972',
+          category: 'Tactics',
+          date: 'May 28, 2026',
+          readTime: '8 Min Read',
+          author: 'GM Alex Petrov',
+          authorRole: 'Senior Coach',
+          authorInitials: 'AP',
+          excerpt: 'A tactical review of Game 6 of the 1972 World Championship match in Reykjavik, where Bobby Fischer opened with 1. c4 for the first time in his life.',
+          initialFEN: 'r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4',
+          coverImage: 'blog-img-1.jpg'
+        },
+        {
+          id: 'tal-botvinnik',
+          link: 'blog-post-5.html',
+          title: 'The Magician from Riga: Mikhail Tal vs Mikhail Botvinnik 1960',
+          category: 'Tactics',
+          date: 'May 15, 2026',
+          readTime: '10 Min Read',
+          author: 'GM Alex Petrov',
+          authorRole: 'Senior Coach',
+          authorInitials: 'AP',
+          excerpt: 'Exploring the sharp sacrifice combinations played by Mikhail Tal in the 1960 World Chess Championship that left Botvinnik completely defenseless.',
+          initialFEN: 'rn1qkb1r/pp2ppp1/2pp3p/8/2BPP1b1/2N2N2/PPP2PPP/R1BQK2R w KQkq - 2 6',
+          coverImage: 'blog-img-2.jpg'
+        },
+        {
+          id: 'capablanca-lasker',
+          link: 'blog-post-6.html',
+          title: 'Endgame Perfection: Jose Raul Capablanca vs Emanuel Lasker 1921',
+          category: 'Positional',
+          date: 'May 05, 2026',
+          readTime: '9 Min Read',
+          author: 'GM Alex Petrov',
+          authorRole: 'Senior Coach',
+          authorInitials: 'AP',
+          excerpt: 'An instructive structural analysis of Capablanca\'s pristine endgame technique in transforming a small rook-and-pawn advantage into a win.',
+          initialFEN: '8/8/4k3/p1prp2p/P2PR1pP/2P3P1/1P6/6K1 w - - 0 35',
+          coverImage: 'blog-img-3.jpg'
+        }
+      ];
+
+      articles.forEach(art => {
+        art.board = parseFEN(art.initialFEN);
+      });
+      return articles;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init></script>
+</head>
+<body class="hero-mesh min-h-screen flex flex-col">
+  <!-- Global Header & Mobile Menu Container -->
+  <div v-cloak v-scope="{ activeItem: 'blog', homeHref: 'index.html', aboutHref: 'about.html', eventsHref: 'events.html', tournamentsHref: 'tournaments.html', membershipHref: 'membership.html', coachesHref: 'coaches.html', blogHref: 'blog.html', contactHref: 'contact.html', ctaHref: 'free-trial.html', isMobileMenuOpen: false }">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#050508]/95 backdrop-blur-[20px] border-b border-white/5 px-5 md:px-12">
+      <div class="max-w-[1440px] mx-auto h-20 flex items-center justify-between relative">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 border border-[#e5e7eb]/10 rounded flex items-center justify-center">
+            <iconify-icon icon="fa6-solid:chess-knight" class="text-white text-xl"></iconify-icon>
+          </div>
+          <a href="index.html" class="flex flex-col">
+            <span class="font-bold text-[10px] sm:text-xs tracking-[0.3em] uppercase">Royal Knights</span>
+            <span class="text-[8px] sm:text-[9px] text-gray-500 font-medium tracking-[0.1em] uppercase">Est. 1924</span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden xl:flex flex-row flex-nowrap items-center gap-6 min-[1400px]:gap-8"><a :href="homeHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'home' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Home</a><a :href="aboutHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'about' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">About</a><a :href="eventsHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'events' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Events</a><a :href="tournamentsHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'tournaments' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Tournaments</a><a :href="membershipHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'membership' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Membership</a><a :href="coachesHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'coaches' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Coaches</a><a :href="blogHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'blog' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Blog</a><a :href="contactHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'contact' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Contact</a></nav>
+
+        <div class="flex items-center gap-4">
+          <a :href="ctaHref" class="hidden md:flex px-6 py-2.5 bg-white text-black text-[12px] font-bold uppercase tracking-widest rounded-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] min-h-[44px] items-center border border-white">Book Free Trial</a>
+          <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="xl:hidden w-11 h-11 p-2 text-white/70 cursor-pointer transition-all duration-200 hover:text-white hover:bg-white/5 active:scale-95 flex items-center justify-center rounded" style="min-height: 44px; min-width: 44px;">
+            <iconify-icon :icon="isMobileMenuOpen ? 'lucide:x' : 'lucide:menu'" class="text-2xl transition-transform duration-200"></iconify-icon>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Drawer -->
+    <div :class="{ 'fixed inset-0 overflow-hidden': isMobileMenuOpen, 'pointer-events-none': !isMobileMenuOpen }" class="z-[60] xl:hidden">
+      <div v-show="isMobileMenuOpen" @click="isMobileMenuOpen = false" class="fixed inset-0 bg-black/50 transition-opacity duration-300"></div>
+      <div v-show="isMobileMenuOpen" class="fixed right-0 top-0 h-screen w-full max-w-sm bg-[#050508] flex flex-col transition-transform duration-300 ease-out border-l border-white/5" :style="{ transform: isMobileMenuOpen ? 'translateX(0)' : 'translateX(100%)' }">
+        <div class="flex justify-between items-center p-6 border-b border-white/10">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 border border-white/10 rounded flex items-center justify-center">
+              <iconify-icon icon="fa6-solid:chess-knight" class="text-white text-lg"></iconify-icon>
+            </div>
+            <span class="font-bold text-xs tracking-[0.3em] uppercase text-white">Royal Knights</span>
+          </div>
+          <button @click="isMobileMenuOpen = false" class="p-4 min-h-[48px] min-w-[48px] flex items-center justify-center bg-transparent border-none cursor-pointer hover:bg-white/5 rounded transition-colors" aria-label="Close menu">
+            <iconify-icon icon="lucide:x" class="text-3xl text-white"></iconify-icon>
+          </button>
+        </div>
+        
+        <nav class="flex-1 overflow-y-auto p-6">
+          <div class="flex flex-col gap-1">
+            <a :href="homeHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'home' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:home" class="text-xl flex-shrink-0" :class="activeItem === 'home' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Home</span>
+            </a>
+            <a :href="aboutHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'about' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:info" class="text-xl flex-shrink-0" :class="activeItem === 'about' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>About</span>
+            </a>
+            <a :href="eventsHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'events' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:calendar" class="text-xl flex-shrink-0" :class="activeItem === 'events' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Events</span>
+            </a>
+            <a :href="tournamentsHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'tournaments' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:swords" class="text-xl flex-shrink-0" :class="activeItem === 'tournaments' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Tournaments</span>
+            </a>
+            <a :href="membershipHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'membership' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:credit-card" class="text-xl flex-shrink-0" :class="activeItem === 'membership' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Membership</span>
+            </a>
+            <a :href="coachesHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'coaches' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:users" class="text-xl flex-shrink-0" :class="activeItem === 'coaches' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Coaches</span>
+            </a>
+            <a :href="blogHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'blog' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:newspaper" class="text-xl flex-shrink-0" :class="activeItem === 'blog' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Blog</span>
+            </a>
+            <a :href="contactHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'contact' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:mail" class="text-xl flex-shrink-0" :class="activeItem === 'contact' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Contact</span>
+            </a>
+          </div>
+        </nav>
+        
+        <div class="p-6 border-t border-white/10">
+          <a :href="ctaHref" @click="isMobileMenuOpen = false" class="w-full py-4 px-6 bg-white text-black text-center font-semibold uppercase tracking-widest block rounded-sm text-sm hover:bg-gray-100 active:bg-gray-200 transition-colors min-h-[56px] flex items-center justify-center">
+            Book Free Trial
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-1" v-cloak v-scope="{ 
+    filter: 'all', 
+    searchQuery: '',
+    articles: getArticlesData(),
+    
+    getFeaturedArticle() {
+      return this.articles.find(a => a.id === 'kasparov-topalov');
+    }
+  }">
+    <section class="pt-40 pb-24 px-5 md:px-12">
+      <div class="container mx-auto max-w-[1440px]">
+        <!-- Title Header -->
+        <div class="max-w-3xl mb-16 text-left">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-8 h-[1px] bg-white/30"></span>
+            <span class="text-[10px] font-bold tracking-[0.4em] text-white/40 uppercase">Grandmaster Writings</span>
+          </div>
+          <h1 class="text-5xl sm:text-7xl md:text-8xl font-light tracking-tighter leading-none mb-6 serif-title silver-gradient-text">Strategic Files</h1>
+          <p class="text-lg md:text-xl text-white/50 font-light leading-relaxed">
+            Instructional analysis files, opening theories, and structural endgame guides published weekly by our FIDE coaches.
+          </p>
+        </div>
+
+        <!-- Featured Post (Kasparov vs Topalov) -->
+        <div v-show="filter === 'all' && searchQuery === ''" class="card-glass p-8 md:p-12 rounded-[2rem] border border-white/10 text-left mb-16 shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-fadeIn">
+          
+          <div class="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+            <div class="lg:col-span-7 space-y-6">
+              <div class="flex items-center gap-3 text-xs text-white/40 font-bold uppercase tracking-wider">
+                <span class="px-2.5 py-0.5 bg-white/10 text-white rounded">Tactics</span>
+                <span>&bull;</span>
+                <span>June 15, 2026</span>
+                <span>&bull;</span>
+                <span>12 Min Read</span>
+              </div>
+              <h2 class="text-3xl sm:text-5xl font-light serif-title text-white leading-tight">The Immortal Queen Sacrifice: Kasparov vs Topalov 1999</h2>
+              <p class="text-base text-white/60 font-light leading-relaxed">
+                An in-depth analysis of Garry Kasparov's legendary rook sacrifice and subsequent queen maneuvers against Veselin Topalov, widely regarded as one of the greatest games ever played.
+              </p>
+              <div class="flex items-center gap-3 pt-4">
+                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center font-bold text-xs text-white">AP</div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">GM Alex Petrov</h4>
+                  <span class="text-[9px] text-white/40 uppercase tracking-widest block">Senior Coach</span>
+                </div>
+              </div>
+              <div class="pt-4">
+                <!-- Premium outline pill button with glow and icon -->
+                <a :href="getFeaturedArticle().link" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/15 hover:border-white hover:bg-white hover:text-black text-[11px] font-bold uppercase tracking-widest transition-all duration-300 shadow-xl active:scale-95">
+                  <iconify-icon icon="lucide:book-open" class="text-sm"></iconify-icon> Read Article
+                </a>
+              </div>
+            </div>
+            
+            <!-- Live chessboard showing initial position discussed in article -->
+            <div class="lg:col-span-5 w-full flex justify-center">
+              <div class="relative w-full aspect-square max-w-[320px] border-4 border-[#2b1f1f] rounded-2xl shadow-2xl overflow-hidden bg-[#ebd3b4]">
+                <div class="grid grid-cols-8 grid-rows-8 h-full w-full">
+                  <div v-for="(square, sIdx) in getFeaturedArticle().board"
+                       :class="(Math.floor(sIdx / 8) + (sIdx % 8)) % 2 === 0 ? 'bg-[#ebd3b4]' : 'bg-[#b58863]'"
+                       class="relative flex items-center justify-center pointer-events-none">
+                    <iconify-icon v-if="square"
+                                  :icon="square.icon"
+                                  :class="square.color === 'white' ? 'text-amber-50 drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]' : 'text-neutral-900 drop-shadow-[0_2px_1px_rgba(255,255,255,0.25)]'"
+                                  class="text-2xl sm:text-3xl"></iconify-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-white/5 pb-8 mb-12">
+          <!-- Filter Buttons -->
+          <div class="flex flex-wrap gap-2 justify-start">
+            <button @click="filter = 'all'" :class="filter === 'all' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-5 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200">
+              All Files
+            </button>
+            <button @click="filter = 'tactics'" :class="filter === 'tactics' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-5 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200">
+              Tactics
+            </button>
+            <button @click="filter = 'positional'" :class="filter === 'positional' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-5 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200">
+              Positional
+            </button>
+          </div>
+
+          <!-- Search Input -->
+          <div class="relative w-full md:w-80">
+            <input type="text" v-model="searchQuery" placeholder="Search files..." class="w-full bg-white/5 border border-white/10 rounded-full px-6 py-2.5 text-xs text-white focus:outline-none focus:border-white transition-colors pl-12">
+            <iconify-icon icon="lucide:search" class="absolute left-5 top-1/2 -translate-y-1/2 text-white/40"></iconify-icon>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+          <div v-for="art in articles" 
+               v-show="((filter === 'all' && searchQuery === '') ? art.id !== 'kasparov-topalov' : true) && (filter === 'all' || filter === art.category.toLowerCase()) && (art.title.toLowerCase().includes(searchQuery.toLowerCase()) || art.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) || searchQuery === '')" 
+               class="card-glass overflow-hidden rounded-[2rem] flex flex-col justify-between border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300 hover:border-white/20">
+            
+            <!-- Bottom content -->
+            <div class="p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-3 text-[10px] text-white/40 font-bold uppercase tracking-wider mb-4">
+                  <span class="px-2 py-0.5 bg-white/10 text-white rounded">{{ art.category }}</span>
+                  <span>{{ art.readTime }}</span>
+                </div>
+                <h3 class="text-2xl font-light serif-title text-white mb-3 hover:text-white/80 transition-colors">
+                  <a :href="art.link" class="text-left font-light serif-title text-2xl hover:text-white/80 transition-colors">{{ art.title }}</a>
+                </h3>
+                <p class="text-sm text-white/50 font-light mb-6">
+                  {{ art.excerpt }}
+                </p>
+              </div>
+              <div class="flex items-center justify-between border-t border-white/5 pt-6 mt-4">
+                <span class="text-xs text-white/40">{{ art.date }}</span>
+                <!-- Premium outline pill button with icon -->
+                <a :href="art.link" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-white/10 hover:border-white hover:bg-white hover:text-black text-[10px] font-bold uppercase tracking-widest transition-all duration-300">
+                  <iconify-icon icon="lucide:book-open" class="text-xs"></iconify-icon> Read File
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <!-- Global Footer -->
+              <!-- Global Footer (New Redesigned Premium Footer) -->
+  <div v-cloak v-scope="{ email: '' }">
+    <footer class="py-20 px-5 md:px-12 border-t border-white/10 bg-[#050508] relative overflow-hidden">
+      <!-- Glow effect inside footer -->
+      <div class="absolute bottom-0 right-0 w-[500px] h-[300px] bg-white/[0.01] rounded-full blur-[120px] pointer-events-none"></div>
+      
+      <div class="container mx-auto max-w-[1440px]">
+        <!-- Top Section: 4-Column Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-white/5 text-left">
+          
+          <!-- Column 1: Brand Info & Newsletter (Col-span-5) -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 border border-white/10 rounded flex items-center justify-center">
+                <iconify-icon icon="fa6-solid:chess-knight" class="text-white text-lg"></iconify-icon>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-bold text-[11px] sm:text-xs tracking-[0.3em] uppercase text-white">Royal Knights</span>
+                <span class="text-[8px] sm:text-[9px] text-white/40 tracking-[0.1em] uppercase">Est. 1924</span>
+              </div>
+            </div>
+            <p class="text-sm font-light text-white/50 leading-relaxed max-w-sm">
+              The world's most prestigious digital arena for strategic mastery and competition. Join our community to master the board.
+            </p>
+            <!-- Sleek Newsletter Signup -->
+            <form @submit.prevent="alert('Thank you for subscribing!')" class="flex items-center gap-2 max-w-sm pt-2">
+              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
+              <button type="submit" class="px-5 py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95">Subscribe</button>
+            </form>
+          </div>
+          
+          <!-- Column 2: Navigation Links (Col-span-2) -->
+          <div class="lg:col-span-2 space-y-4">
+            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">Platform</h4>
+            <ul class="space-y-2.5 text-[12px] font-light">
+              <li><a href="index.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Home</a></li>
+              <li><a href="about.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">About</a></li>
+              <li><a href="coaches.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Coaches</a></li>
+              <li><a href="programs.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Programs</a></li>
+              <li><a href="membership.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Membership</a></li>
+              <li><a href="testimonials.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Testimonials</a></li>
+            </ul>
+          </div>
+          
+          <!-- Column 3: Arena & Resources (Col-span-2) -->
+          <div class="lg:col-span-2 space-y-4">
+            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">Arena</h4>
+            <ul class="space-y-2.5 text-[12px] font-light">
+              <li><a href="tournaments.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Tournaments</a></li>
+              <li><a href="events.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Events</a></li>
+              <li><a href="puzzles.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Daily Puzzles</a></li>
+              <li><a href="gallery.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Gallery</a></li>
+              <li><a href="blog.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Blog</a></li>
+            </ul>
+          </div>
+          
+          <!-- Column 4: Contact & Details (Col-span-3) -->
+          <div class="lg:col-span-3 space-y-4">
+            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">Contact Info</h4>
+            <ul class="space-y-3 text-[12px] font-light text-white/50">
+              <li class="flex items-start gap-2.5">
+                <iconify-icon icon="lucide:map-pin" class="text-white/30 text-sm mt-0.5"></iconify-icon>
+                <span>120 Chess Master Drive, Suite 100, New York, NY 10001</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <iconify-icon icon="lucide:mail" class="text-white/30 text-sm"></iconify-icon>
+                <a href="mailto:contact@royalknights.com" class="hover:text-white transition-colors">contact@royalknights.com</a>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <iconify-icon icon="lucide:phone" class="text-white/30 text-sm"></iconify-icon>
+                <a href="tel:+15551241924" class="hover:text-white transition-colors">+1 (555) 124-1924</a>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+        
+        <!-- Bottom Section: Copyright and Socials -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-12 text-[11px] text-white/30 font-light">
+          <div class="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+            <p>&copy; 2026 Royal Knights Chess Club. All rights reserved.</p>
+            <span class="hidden md:inline text-white/10">|</span>
+            <div class="flex gap-4">
+              <a href="faq.html" class="hover:text-white transition-colors">FAQ</a>
+              <a href="contact.html" class="hover:text-white transition-colors">Support</a>
+              <a href="free-trial.html" class="hover:text-white transition-colors">Free Trial</a>
+            </div>
+          </div>
+          
+          <!-- Social Icons -->
+          <div class="flex gap-4 items-center">
+            <a href="#facebook" aria-label="Facebook" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+              <iconify-icon icon="brandico:facebook-rect" class="text-sm"></iconify-icon>
+            </a>
+            <a href="#twitter" aria-label="Twitter" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+              <iconify-icon icon="brandico:twitter-bird" class="text-sm"></iconify-icon>
+            </a>
+            <a href="#instagram" aria-label="Instagram" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+              <iconify-icon icon="brandico:instagram" class="text-sm"></iconify-icon>
+            </a>
+          </div>
+          
+          <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/10 hidden lg:block">
+            Strategy &bull; Discipline &bull; Mastery
+          </p>
+        </div>
+        
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, observerOptions);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const revealElements = document.querySelectorAll("section, .group, .col-span-12, .card-glass");
+      revealElements.forEach(el => {
+        el.classList.add("reveal");
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

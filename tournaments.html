@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- White Flash Fix -->
+  <style>
+    html, body {
+      background-color: #050508 !important;
+      background: #050508 !important;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @view-transition { navigation: auto; }
+    :root {
+      --bg-deep: #050508;
+      --bg-card: #0c0c14;
+      --accent-silver: #e5e7eb;
+      --accent-subtle: #4b5563;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #050508 !important;
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    .serif-title {
+      font-family: 'Crimson Pro', serif;
+    }
+    
+    .hero-mesh {
+      background-image: radial-gradient(circle at 80% 20%, rgba(229, 231, 235, 0.08) 0%, rgba(0,0,0,0) 50%),
+                  radial-gradient(circle at 20% 80%, rgba(229, 231, 235, 0.05) 0%, rgba(0,0,0,0) 50%);
+    }
+    
+    .silver-border {
+      border: 1px solid rgba(229, 231, 235, 0.1);
+    }
+    
+    .silver-gradient-text {
+      background: linear-gradient(180deg, #fff 0%, #9ca3af 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding-bottom: 0.1em;
+      margin-bottom: -0.1em;
+      display: inline-block;
+    }
+    
+    .card-glass {
+      background: rgba(12, 12, 20, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-glass:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-4px);
+    }
+    
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+[v-cloak] { display: none !important; }
+</style>
+  <script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init></script>
+</head>
+<body class="hero-mesh min-h-screen flex flex-col">
+                  <!-- Global Header & Mobile Menu Container -->
+  <div v-cloak v-scope="{ activeItem: 'tournaments', homeHref: 'index.html', aboutHref: 'about.html', eventsHref: 'events.html', tournamentsHref: 'tournaments.html', membershipHref: 'membership.html', coachesHref: 'coaches.html', blogHref: 'blog.html', contactHref: 'contact.html', ctaHref: 'free-trial.html', isMobileMenuOpen: false }">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#050508]/95 backdrop-blur-[20px] border-b border-white/5 px-5 md:px-12">
+      <div class="max-w-[1440px] mx-auto h-20 flex items-center justify-between relative">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 border border-[#e5e7eb]/10 rounded flex items-center justify-center">
+            <iconify-icon icon="fa6-solid:chess-knight" class="text-white text-xl"></iconify-icon>
+          </div>
+          <a href="index.html" class="flex flex-col">
+            <span class="font-bold text-[10px] sm:text-xs tracking-[0.3em] uppercase">Royal Knights</span>
+            <span class="text-[8px] sm:text-[9px] text-gray-500 font-medium tracking-[0.1em] uppercase">Est. 1924</span>
+          </a>
+        </div>
+
+        <nav class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden xl:flex flex-row flex-nowrap items-center gap-6 min-[1400px]:gap-8"><a :href="homeHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'home' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Home</a><a :href="aboutHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'about' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">About</a><a :href="eventsHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'events' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Events</a><a :href="tournamentsHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'tournaments' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Tournaments</a><a :href="membershipHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'membership' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Membership</a><a :href="coachesHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'coaches' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Coaches</a><a :href="blogHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'blog' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Blog</a><a :href="contactHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'contact' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Contact</a></nav>
+
+
+        <div class="flex items-center gap-4">
+          <a :href="ctaHref" class="hidden md:flex px-6 py-2.5 bg-white text-black text-[12px] font-bold uppercase tracking-widest rounded-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] min-h-[44px] items-center border border-white">Book Free Trial</a>
+          <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="xl:hidden w-11 h-11 p-2 text-white/70 cursor-pointer transition-all duration-200 hover:text-white hover:bg-white/5 active:scale-95 flex items-center justify-center rounded" style="min-height: 44px; min-width: 44px;">
+            <iconify-icon :icon="isMobileMenuOpen ? 'lucide:x' : 'lucide:menu'" class="text-2xl transition-transform duration-200"></iconify-icon>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Drawer -->
+    <div :class="{ 'fixed inset-0 overflow-hidden': isMobileMenuOpen, 'pointer-events-none': !isMobileMenuOpen }" class="z-[60] xl:hidden">
+      <div v-show="isMobileMenuOpen" @click="isMobileMenuOpen = false" class="fixed inset-0 bg-black/50 transition-opacity duration-300"></div>
+      <div v-show="isMobileMenuOpen" class="fixed right-0 top-0 h-screen w-full max-w-sm bg-[#050508] flex flex-col transition-transform duration-300 ease-out border-l border-white/5" :style="{ transform: isMobileMenuOpen ? 'translateX(0)' : 'translateX(100%)' }">
+        <div class="flex justify-between items-center p-6 border-b border-white/10">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 border border-white/10 rounded flex items-center justify-center">
+              <iconify-icon icon="fa6-solid:chess-knight" class="text-white text-lg"></iconify-icon>
+            </div>
+            <span class="font-bold text-xs tracking-[0.3em] uppercase text-white">Royal Knights</span>
+          </div>
+          <button @click="isMobileMenuOpen = false" class="p-4 min-h-[48px] min-w-[48px] flex items-center justify-center bg-transparent border-none cursor-pointer hover:bg-white/5 rounded transition-colors" aria-label="Close menu">
+            <iconify-icon icon="lucide:x" class="text-3xl text-white"></iconify-icon>
+          </button>
+        </div>
+        
+        <nav class="flex-1 overflow-y-auto p-6">
+          <div class="flex flex-col gap-1">
+            <a :href="homeHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'home' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:home" class="text-xl flex-shrink-0" :class="activeItem === 'home' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Home</span>
+            </a>
+            <a :href="aboutHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'about' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:info" class="text-xl flex-shrink-0" :class="activeItem === 'about' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>About</span>
+            </a>
+            <a :href="eventsHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'events' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:calendar" class="text-xl flex-shrink-0" :class="activeItem === 'events' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Events</span>
+            </a>
+            <a :href="tournamentsHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'tournaments' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:swords" class="text-xl flex-shrink-0" :class="activeItem === 'tournaments' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Tournaments</span>
+            </a>
+            <a :href="membershipHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'membership' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:credit-card" class="text-xl flex-shrink-0" :class="activeItem === 'membership' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Membership</span>
+            </a>
+            <a :href="coachesHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'coaches' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:users" class="text-xl flex-shrink-0" :class="activeItem === 'coaches' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Coaches</span>
+            </a>
+            <a :href="blogHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'blog' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:newspaper" class="text-xl flex-shrink-0" :class="activeItem === 'blog' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Blog</span>
+            </a>
+            <a :href="contactHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'contact' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:mail" class="text-xl flex-shrink-0" :class="activeItem === 'contact' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Contact</span>
+            </a>
+          </div>
+        </nav>
+        
+        <div class="p-6 border-t border-white/10">
+          <a :href="ctaHref" @click="isMobileMenuOpen = false" class="w-full py-4 px-6 bg-white text-black text-center font-semibold uppercase tracking-widest block rounded-sm text-sm hover:bg-gray-100 active:bg-gray-200 transition-colors min-h-[56px] flex items-center justify-center">
+            Book Free Trial
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-1" v-cloak v-scope="{ filter: 'all' }">
+    <section class="pt-40 pb-24 px-5 md:px-12">
+      <div class="container mx-auto max-w-[1440px]">
+        <!-- Title Header -->
+        <div class="max-w-3xl mb-16 text-left">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-8 h-[1px] bg-white/30"></span>
+            <span class="text-[10px] font-bold tracking-[0.4em] text-white/40 uppercase">Competitive Stage</span>
+          </div>
+          <h1 class="text-5xl sm:text-7xl md:text-8xl font-light tracking-tighter leading-none mb-6 serif-title silver-gradient-text">Tournaments</h1>
+          <p class="text-lg md:text-xl text-white/50 font-light leading-relaxed">
+            Participate in prestigious club opens, FIDE-rated blitz challenges, and closed-bracket championships. Climb the rating ladders and secure your victory.
+          </p>
+        </div>
+
+        <!-- Filter Tab Buttons & Leaderboard Link -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-12 border-b border-white/5 pb-8">
+          <div class="flex flex-wrap gap-3">
+            <button @click="filter = 'all'" :class="filter === 'all' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200">
+              All Matches
+            </button>
+            <button @click="filter = 'upcoming'" :class="filter === 'upcoming' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200">
+              Upcoming
+            </button>
+            <button @click="filter = 'past'" :class="filter === 'past' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200">
+              Past Tournaments
+            </button>
+          </div>
+          <div>
+            <a href="#leaderboard" class="px-6 py-2.5 rounded-full border border-amber-500/30 bg-amber-500/5 hover:bg-amber-500/15 text-amber-400 hover:text-amber-300 text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 cursor-pointer max-w-max shadow-[0_0_15px_rgba(245,158,11,0.05)] hover:shadow-[0_0_25px_rgba(245,158,11,0.2)] hover:scale-[1.03]">
+              <iconify-icon icon="lucide:trophy" class="text-sm text-amber-400 animate-pulse"></iconify-icon>
+              Leaderboard Standings
+            </a>
+          </div>
+        </div>
+
+        <!-- Grid of Tournaments -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mb-24">
+          <!-- Tournament 1 -->
+          <div v-show="filter === 'all' || filter === 'upcoming'" class="card-glass p-8 md:p-10 rounded-[2rem] flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 text-[9px] font-bold uppercase tracking-widest rounded-full flex items-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.03] cursor-default">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    Upcoming
+                  </span>
+                  <span class="px-3 py-1 bg-white/10 text-[9px] font-bold uppercase tracking-widest text-white rounded-full">FIDE Rated</span>
+                </div>
+                <span class="text-[10px] text-white/40 uppercase font-bold tracking-widest">Nov 10 - Nov 15</span>
+              </div>
+              <h3 class="text-3xl font-light serif-title text-white mb-4">Royal Knights Autumn Open</h3>
+              <p class="text-sm text-white/50 font-light mb-8 leading-relaxed">
+                Our flagship classical Swiss tournament. open to all players rated 1600+ ELO. 9 Rounds with a standard time control of 90 minutes + 30 seconds increment.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-white/5 flex flex-wrap gap-4 items-center justify-between">
+              <div>
+                <span class="text-[9px] uppercase tracking-widest text-white/40 block">Prize Pool</span>
+                <span class="text-xl font-bold text-white">$10,000</span>
+              </div>
+              <a href="register-tournament.html?tournament=autumn-open" class="px-6 py-3 bg-white text-black text-[11px] font-bold uppercase tracking-widest rounded-sm transition-all duration-200 hover:scale-105 active:scale-95">Register Now</a>
+            </div>
+          </div>
+
+          <!-- Tournament 2 -->
+          <div v-show="filter === 'all' || filter === 'upcoming'" class="card-glass p-8 md:p-10 rounded-[2rem] flex flex-col justify-between border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.02)]">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 text-[9px] font-bold uppercase tracking-widest rounded-full flex items-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.03] cursor-default">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    Upcoming
+                  </span>
+                  <span class="px-3 py-1 bg-white/10 text-[9px] font-bold uppercase tracking-widest text-white rounded-full">FIDE Rated</span>
+                </div>
+                <span class="text-[10px] text-white/40 uppercase font-bold tracking-widest">Oct 25 (19:00 GMT)</span>
+              </div>
+              <h3 class="text-3xl font-light serif-title text-white mb-4">FIDE Rated Blitz Arena</h3>
+              <p class="text-sm text-white/50 font-light mb-8 leading-relaxed">
+                Fast-paced, high-voltage blitz action. 9 Rounds Swiss, 3 minutes + 2 seconds increment. Free entry for all Platinum and Gold members.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-white/5 flex flex-wrap gap-4 items-center justify-between">
+              <div>
+                <span class="text-[9px] uppercase tracking-widest text-white/40 block">Trophy</span>
+                <span class="text-xl font-bold text-white">Gold Knight Trophy</span>
+              </div>
+              <a href="register-tournament.html?tournament=blitz-arena" class="px-6 py-3 bg-white text-black text-[11px] font-bold uppercase tracking-widest rounded-sm transition-all duration-200 hover:scale-105 active:scale-95">Register Now</a>
+            </div>
+          </div>
+
+          <!-- Tournament 3 -->
+          <div v-show="filter === 'all' || filter === 'upcoming'" class="card-glass p-8 md:p-10 rounded-[2rem] flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 text-[9px] font-bold uppercase tracking-widest rounded-full flex items-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.03] cursor-default">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    Upcoming
+                  </span>
+                  <span class="px-3 py-1 bg-white/10 text-[9px] font-bold uppercase tracking-widest text-white rounded-full">Grandmaster Closed</span>
+                </div>
+                <span class="text-[10px] text-white/40 uppercase font-bold tracking-widest">Dec 05 - Dec 12</span>
+              </div>
+              <h3 class="text-3xl font-light serif-title text-white mb-4">Grandmaster Chess Classic</h3>
+              <p class="text-sm text-white/50 font-light mb-8 leading-relaxed">
+                An elite round-robin invitation-only classical chess standard tournament designed for candidates pursuing GM norms. Requires peak ELO of 2200+.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-white/5 flex flex-wrap gap-4 items-center justify-between">
+              <div>
+                <span class="text-[9px] uppercase tracking-widest text-white/40 block">Prize Pool</span>
+                <span class="text-xl font-bold text-white">$25,000</span>
+              </div>
+              <a href="register-tournament.html?tournament=gm-classic" class="px-6 py-3 bg-white text-black text-[11px] font-bold uppercase tracking-widest rounded-sm transition-all duration-200 hover:scale-105 active:scale-95">Register Now</a>
+            </div>
+          </div>
+
+          <!-- Tournament 4 -->
+          <div v-show="filter === 'all' || filter === 'upcoming'" class="card-glass p-8 md:p-10 rounded-[2rem] flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-400/30 text-[9px] font-bold uppercase tracking-widest rounded-full flex items-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.03] cursor-default">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    Upcoming
+                  </span>
+                  <span class="px-3 py-1 bg-white/10 text-[9px] font-bold uppercase tracking-widest text-white rounded-full">Junior Category</span>
+                </div>
+                <span class="text-[10px] text-white/40 uppercase font-bold tracking-widest">Nov 22 (10:00 GMT)</span>
+              </div>
+              <h3 class="text-3xl font-light serif-title text-white mb-4">Under-18 Youth Championship</h3>
+              <p class="text-sm text-white/50 font-light mb-8 leading-relaxed">
+                Nurturing the future chess elite. Rapid time control: 15 minutes + 10 seconds. Winners receive digital chess.com diamond memberships and personalized roadmaps.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-white/5 flex flex-wrap gap-4 items-center justify-between">
+              <div>
+                <span class="text-[9px] uppercase tracking-widest text-white/40 block">Scholarship</span>
+                <span class="text-xl font-bold text-white">Full Academy Pass</span>
+              </div>
+              <a href="register-tournament.html?tournament=youth-championship" class="px-6 py-3 bg-white text-black text-[11px] font-bold uppercase tracking-widest rounded-sm transition-all duration-200 hover:scale-105 active:scale-95">Register Now</a>
+            </div>
+          </div>
+
+          <!-- Tournament 5 (Past) -->
+          <div v-show="filter === 'all' || filter === 'past'" class="card-glass p-8 md:p-10 rounded-[2rem] flex flex-col justify-between opacity-75 hover:opacity-100 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="px-3 py-1 bg-white/5 border border-white/10 text-[9px] font-bold uppercase tracking-widest text-white/50 rounded-full">Concluded</span>
+                <span class="text-[10px] text-white/40 uppercase font-bold tracking-widest">Jun 10 - Jun 15</span>
+              </div>
+              <h3 class="text-3xl font-light serif-title text-white mb-4">Summer Classic Open 2026</h3>
+              <p class="text-sm text-white/50 font-light mb-8 leading-relaxed">
+                An intense 9-round Swiss classical tournament with a $5,000 prize pool. Concluded with GM Maximilian Schwarz taking the championship title.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-white/5 flex flex-wrap gap-4 items-center justify-between">
+              <div>
+                <span class="text-[9px] uppercase tracking-widest text-white/40 block">Winner</span>
+                <span class="text-xl font-bold text-white">GM Maximilian Schwarz</span>
+              </div>
+              <a href="#" class="px-6 py-3 border border-white/10 text-white/40 hover:border-white/20 hover:text-white/80 hover:bg-white/5 text-[11px] font-bold uppercase tracking-widest rounded-sm transition-all duration-200">View Standings</a>
+            </div>
+          </div>
+
+          <!-- Tournament 6 (Past) -->
+          <div v-show="filter === 'all' || filter === 'past'" class="card-glass p-8 md:p-10 rounded-[2rem] flex flex-col justify-between opacity-75 hover:opacity-100 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="px-3 py-1 bg-white/5 border border-white/10 text-[9px] font-bold uppercase tracking-widest text-white/50 rounded-full">Concluded</span>
+                <span class="text-[10px] text-white/40 uppercase font-bold tracking-widest">Apr 20</span>
+              </div>
+              <h3 class="text-3xl font-light serif-title text-white mb-4">Spring Blitz Championship</h3>
+              <p class="text-sm text-white/50 font-light mb-8 leading-relaxed">
+                Fast-paced blitz action. 11 rounds Swiss, 3+2 time control. Winner: IM Viktor Sokolov.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-white/5 flex flex-wrap gap-4 items-center justify-between">
+              <div>
+                <span class="text-[9px] uppercase tracking-widest text-white/40 block">Winner</span>
+                <span class="text-xl font-bold text-white">IM Viktor Sokolov</span>
+              </div>
+              <a href="#" class="px-6 py-3 border border-white/10 text-white/40 hover:border-white/20 hover:text-white/80 hover:bg-white/5 text-[11px] font-bold uppercase tracking-widest rounded-sm transition-all duration-200">View Standings</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leaderboard Table Section -->
+        <div id="leaderboard" class="border-t border-white/5 pt-24 mb-12 scroll-mt-24">
+          <div class="flex justify-center items-center gap-3 mb-6">
+            <span class="w-8 h-[1px] bg-white/30"></span>
+            <span class="text-[10px] font-bold tracking-[0.4em] text-white/40 uppercase">Global Standings</span>
+            <span class="w-8 h-[1px] bg-white/30"></span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-light serif-title text-center text-white mb-16">Active Club Leaderboard</h2>
+
+          <div class="w-full overflow-x-auto card-glass rounded-[2rem] p-6 md:p-10 border border-white/5 shadow-[0_0_50px_rgba(0,0,0,0.3)]">
+            <table class="w-full min-w-[800px] text-left border-collapse">
+              <thead>
+                <tr class="border-b border-white/10 text-white/40 text-[10px] uppercase tracking-[0.2em] h-14">
+                  <th class="pb-4 pl-4 font-semibold">Rank</th>
+                  <th class="pb-4 font-semibold">Player</th>
+                  <th class="pb-4 font-semibold">Title</th>
+                  <th class="pb-4 font-semibold">Peak Rating</th>
+                  <th class="pb-4 font-semibold">Wins</th>
+                  <th class="pb-4 font-semibold">Recent Triumph</th>
+                  <th class="pb-4 pr-4 text-right font-semibold">Win Ratio</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm text-white/80">
+                <!-- Rank 1 -->
+                <tr class="border-b border-white/5 h-20 hover:bg-white/[0.02] transition-all duration-200">
+                  <td class="pl-4">
+                    <div class="flex items-center gap-2">
+                      <span class="w-8 h-8 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.15)]">
+                        <iconify-icon icon="lucide:trophy" class="text-sm"></iconify-icon>
+                      </span>
+                      <span class="font-bold text-white text-xs tracking-wider">#1</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500/20 to-orange-600/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-xs tracking-wider">
+                        MS
+                      </div>
+                      <span class="font-semibold text-white tracking-wide">Maximilian Schwarz</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="px-2.5 py-1 bg-red-500/10 text-red-400 border border-red-500/20 text-[10px] font-bold uppercase tracking-widest rounded">GM</span>
+                  </td>
+                  <td>
+                    <div class="flex items-center gap-1.5">
+                      <iconify-icon icon="lucide:trending-up" class="text-emerald-500 text-sm"></iconify-icon>
+                      <span class="font-bold text-white tracking-wide">2692</span>
+                      <span class="text-[9px] text-white/30 uppercase tracking-widest">ELO</span>
+                    </div>
+                  </td>
+                  <td class="font-medium text-white/70">142</td>
+                  <td>
+                    <span class="text-white/60 transition-colors flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      Summer Classic 2026
+                    </span>
+                  </td>
+                  <td class="pr-4">
+                    <div class="flex items-center justify-end gap-3">
+                      <div class="w-16 bg-white/5 h-1.5 rounded-full overflow-hidden hidden sm:block">
+                        <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full" style="width: 72.4%"></div>
+                      </div>
+                      <span class="font-semibold text-emerald-400 text-xs">72.4%</span>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Rank 2 -->
+                <tr class="border-b border-white/5 h-20 hover:bg-white/[0.02] transition-all duration-200">
+                  <td class="pl-4">
+                    <div class="flex items-center gap-2">
+                      <span class="w-8 h-8 rounded-full bg-slate-400/10 border border-slate-400/30 flex items-center justify-center text-slate-300">
+                        <iconify-icon icon="lucide:award" class="text-base"></iconify-icon>
+                      </span>
+                      <span class="font-bold text-white text-xs tracking-wider">#2</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-slate-400/20 to-zinc-500/20 border border-white/10 flex items-center justify-center text-slate-300 font-bold text-xs tracking-wider">
+                        VS
+                      </div>
+                      <span class="font-semibold text-white tracking-wide">Viktor Sokolov</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[10px] font-bold uppercase tracking-widest rounded">IM</span>
+                  </td>
+                  <td>
+                    <div class="flex items-center gap-1.5">
+                      <iconify-icon icon="lucide:trending-up" class="text-emerald-500 text-sm"></iconify-icon>
+                      <span class="font-bold text-white tracking-wide">2540</span>
+                      <span class="text-[9px] text-white/30 uppercase tracking-widest">ELO</span>
+                    </div>
+                  </td>
+                  <td class="font-medium text-white/70">118</td>
+                  <td>
+                    <span class="text-white/60 transition-colors flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      Spring Blitz 2026
+                    </span>
+                  </td>
+                  <td class="pr-4">
+                    <div class="flex items-center justify-end gap-3">
+                      <div class="w-16 bg-white/5 h-1.5 rounded-full overflow-hidden hidden sm:block">
+                        <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full" style="width: 68.1%"></div>
+                      </div>
+                      <span class="font-semibold text-emerald-400 text-xs">68.1%</span>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Rank 3 -->
+                <tr class="border-b border-white/5 h-20 hover:bg-white/[0.02] transition-all duration-200">
+                  <td class="pl-4">
+                    <div class="flex items-center gap-2">
+                      <span class="w-8 h-8 rounded-full bg-orange-600/10 border border-orange-600/30 flex items-center justify-center text-orange-400">
+                        <iconify-icon icon="lucide:award" class="text-base"></iconify-icon>
+                      </span>
+                      <span class="font-bold text-white text-xs tracking-wider">#3</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-600/20 to-amber-700/20 border border-white/10 flex items-center justify-center text-orange-300 font-bold text-xs tracking-wider">
+                        CD
+                      </div>
+                      <span class="font-semibold text-white tracking-wide">Charlotte Durand</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="px-2.5 py-1 bg-fuchsia-500/10 text-fuchsia-400 border border-fuchsia-500/20 text-[10px] font-bold uppercase tracking-widest rounded">WGM</span>
+                  </td>
+                  <td>
+                    <div class="flex items-center gap-1.5">
+                      <iconify-icon icon="lucide:trending-up" class="text-emerald-500 text-sm"></iconify-icon>
+                      <span class="font-bold text-white tracking-wide">2455</span>
+                      <span class="text-[9px] text-white/30 uppercase tracking-widest">ELO</span>
+                    </div>
+                  </td>
+                  <td class="font-medium text-white/70">98</td>
+                  <td>
+                    <span class="text-white/60 transition-colors flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      FIDE Blitz Arena
+                    </span>
+                  </td>
+                  <td class="pr-4">
+                    <div class="flex items-center justify-end gap-3">
+                      <div class="w-16 bg-white/5 h-1.5 rounded-full overflow-hidden hidden sm:block">
+                        <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full" style="width: 64.5%"></div>
+                      </div>
+                      <span class="font-semibold text-emerald-400 text-xs">64.5%</span>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Rank 4 -->
+                <tr class="border-b border-white/5 h-20 hover:bg-white/[0.02] transition-all duration-200">
+                  <td class="pl-4">
+                    <div class="flex items-center gap-2 pl-2">
+                      <span class="font-bold text-white/40 text-xs tracking-wider">#4</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 font-bold text-xs tracking-wider">
+                        KS
+                      </div>
+                      <span class="font-semibold text-white tracking-wide">Kenji Sato</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="px-2.5 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 text-[10px] font-bold uppercase tracking-widest rounded">FM</span>
+                  </td>
+                  <td>
+                    <div class="flex items-center gap-1.5">
+                      <iconify-icon icon="lucide:trending-up" class="text-emerald-500 text-sm"></iconify-icon>
+                      <span class="font-bold text-white tracking-wide">2380</span>
+                      <span class="text-[9px] text-white/30 uppercase tracking-widest">ELO</span>
+                    </div>
+                  </td>
+                  <td class="font-medium text-white/70">92</td>
+                  <td>
+                    <span class="text-white/60 transition-colors flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      Youth Championship
+                    </span>
+                  </td>
+                  <td class="pr-4">
+                    <div class="flex items-center justify-end gap-3">
+                      <div class="w-16 bg-white/5 h-1.5 rounded-full overflow-hidden hidden sm:block">
+                        <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full" style="width: 61%"></div>
+                      </div>
+                      <span class="font-semibold text-emerald-400 text-xs">61.0%</span>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Rank 5 -->
+                <tr class="h-20 hover:bg-white/[0.02] transition-all duration-200">
+                  <td class="pl-4">
+                    <div class="flex items-center gap-2 pl-2">
+                      <span class="font-bold text-white/40 text-xs tracking-wider">#5</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 font-bold text-xs tracking-wider">
+                        AA
+                      </div>
+                      <span class="font-semibold text-white tracking-wide">Amina Al-Jamil</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="px-2.5 py-1 bg-teal-500/10 text-teal-400 border border-teal-500/20 text-[10px] font-bold uppercase tracking-widest rounded">WIM</span>
+                  </td>
+                  <td>
+                    <div class="flex items-center gap-1.5">
+                      <iconify-icon icon="lucide:trending-up" class="text-emerald-500 text-sm"></iconify-icon>
+                      <span class="font-bold text-white tracking-wide">2290</span>
+                      <span class="text-[9px] text-white/30 uppercase tracking-widest">ELO</span>
+                    </div>
+                  </td>
+                  <td class="font-medium text-white/70">84</td>
+                  <td>
+                    <span class="text-white/60 transition-colors flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      Weekly Blitz Arena
+                    </span>
+                  </td>
+                  <td class="pr-4">
+                    <div class="flex items-center justify-end gap-3">
+                      <div class="w-16 bg-white/5 h-1.5 rounded-full overflow-hidden hidden sm:block">
+                        <div class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full" style="width: 59.8%"></div>
+                      </div>
+                      <span class="font-semibold text-emerald-400 text-xs">59.8%</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+        <!-- Global Footer -->
+              <!-- Global Footer (New Redesigned Premium Footer) -->
+  <div v-cloak v-scope="{ email: '' }">
+    <footer class="py-20 px-5 md:px-12 border-t border-white/10 bg-[#050508] relative overflow-hidden">
+      <!-- Glow effect inside footer -->
+      <div class="absolute bottom-0 right-0 w-[500px] h-[300px] bg-white/[0.01] rounded-full blur-[120px] pointer-events-none"></div>
+      
+      <div class="container mx-auto max-w-[1440px]">
+        <!-- Top Section: 4-Column Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-white/5 text-left">
+          
+          <!-- Column 1: Brand Info & Newsletter (Col-span-5) -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 border border-white/10 rounded flex items-center justify-center">
+                <iconify-icon icon="fa6-solid:chess-knight" class="text-white text-lg"></iconify-icon>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-bold text-[11px] sm:text-xs tracking-[0.3em] uppercase text-white">Royal Knights</span>
+                <span class="text-[8px] sm:text-[9px] text-white/40 tracking-[0.1em] uppercase">Est. 1924</span>
+              </div>
+            </div>
+            <p class="text-sm font-light text-white/50 leading-relaxed max-w-sm">
+              The world's most prestigious digital arena for strategic mastery and competition. Join our community to master the board.
+            </p>
+            <!-- Sleek Newsletter Signup -->
+            <form @submit.prevent="alert('Thank you for subscribing!')" class="flex items-center gap-2 max-w-sm pt-2">
+              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
+              <button type="submit" class="px-5 py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95">Subscribe</button>
+            </form>
+          </div>
+          
+          <!-- Column 2: Navigation Links (Col-span-2) -->
+          <div class="lg:col-span-2 space-y-4">
+            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">Platform</h4>
+            <ul class="space-y-2.5 text-[12px] font-light">
+              <li><a href="index.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Home</a></li>
+              <li><a href="about.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">About</a></li>
+              <li><a href="coaches.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Coaches</a></li>
+              <li><a href="programs.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Programs</a></li>
+              <li><a href="membership.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Membership</a></li>
+              <li><a href="testimonials.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Testimonials</a></li>
+            </ul>
+          </div>
+          
+          <!-- Column 3: Arena & Resources (Col-span-2) -->
+          <div class="lg:col-span-2 space-y-4">
+            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">Arena</h4>
+            <ul class="space-y-2.5 text-[12px] font-light">
+              <li><a href="tournaments.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Tournaments</a></li>
+              <li><a href="events.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Events</a></li>
+              <li><a href="puzzles.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Daily Puzzles</a></li>
+              <li><a href="gallery.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Gallery</a></li>
+              <li><a href="blog.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Blog</a></li>
+            </ul>
+          </div>
+          
+          <!-- Column 4: Contact & Details (Col-span-3) -->
+          <div class="lg:col-span-3 space-y-4">
+            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">Contact Info</h4>
+            <ul class="space-y-3 text-[12px] font-light text-white/50">
+              <li class="flex items-start gap-2.5">
+                <iconify-icon icon="lucide:map-pin" class="text-white/30 text-sm mt-0.5"></iconify-icon>
+                <span>120 Chess Master Drive, Suite 100, New York, NY 10001</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <iconify-icon icon="lucide:mail" class="text-white/30 text-sm"></iconify-icon>
+                <a href="mailto:contact@royalknights.com" class="hover:text-white transition-colors">contact@royalknights.com</a>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <iconify-icon icon="lucide:phone" class="text-white/30 text-sm"></iconify-icon>
+                <a href="tel:+15551241924" class="hover:text-white transition-colors">+1 (555) 124-1924</a>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+        
+        <!-- Bottom Section: Copyright and Socials -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-12 text-[11px] text-white/30 font-light">
+          <div class="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+            <p>&copy; 2026 Royal Knights Chess Club. All rights reserved.</p>
+            <span class="hidden md:inline text-white/10">|</span>
+            <div class="flex gap-4">
+              <a href="faq.html" class="hover:text-white transition-colors">FAQ</a>
+              <a href="contact.html" class="hover:text-white transition-colors">Support</a>
+              <a href="free-trial.html" class="hover:text-white transition-colors">Free Trial</a>
+            </div>
+          </div>
+          
+          <!-- Social Icons -->
+          <div class="flex gap-4 items-center">
+            <a href="#facebook" aria-label="Facebook" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+              <iconify-icon icon="brandico:facebook-rect" class="text-sm"></iconify-icon>
+            </a>
+            <a href="#twitter" aria-label="Twitter" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+              <iconify-icon icon="brandico:twitter-bird" class="text-sm"></iconify-icon>
+            </a>
+            <a href="#instagram" aria-label="Instagram" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+              <iconify-icon icon="brandico:instagram" class="text-sm"></iconify-icon>
+            </a>
+          </div>
+          
+          <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/10 hidden lg:block">
+            Strategy &bull; Discipline &bull; Mastery
+          </p>
+        </div>
+        
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, observerOptions);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const revealElements = document.querySelectorAll("section, .group, .col-span-12, .card-glass");
+      revealElements.forEach(el => {
+        el.classList.add("reveal");
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

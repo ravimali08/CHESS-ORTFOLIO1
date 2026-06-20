@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- White Flash Fix -->
+  <style>
+    html, body {
+      background-color: #050508 !important;
+      background: #050508 !important;
+    }
+  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="view-transition" content="same-origin">
+<script src="https://cdn.tailwindcss.com">
+</script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js">
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>@view-transition { navigation: auto; }:root { --bg-deep: #050508; --bg-card: #0c0c14; --accent-silver: #e5e7eb; --accent-subtle: #4b5563; }body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050508 !important; color: #fff; overflow-x: hidden; }.serif-title { font-family: 'Crimson Pro', serif; }.hero-mesh { background-image: radial-gradient(circle at 80% 20%, rgba(229, 231, 235, 0.08) 0%, rgba(0,0,0,0) 50%), radial-gradient(circle at 20% 80%, rgba(229, 231, 235, 0.05) 0%, rgba(0,0,0,0) 50%); }.silver-border { border: 1px solid rgba(229, 231, 235, 0.1); }.silver-gradient-text { background: linear-gradient(180deg, #fff 0%, #9ca3af 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }.glass-card { background: rgba(12, 12, 20, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }.input-field { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }.input-field:focus { border-color: var(--accent-silver); outline: none; background: rgba(255, 255, 255, 0.05); box-shadow: 0 0 15px rgba(229, 231, 235, 0.05); }.progress-bar { transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1); } #mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); } #mobile-menu.open { transform: translateX(0); } .overflow-hidden { overflow: hidden !important; } select option { background-color: #0c0c14; color: #fff; }
+[v-cloak] { display: none !important; }
+</style>
+<style>sd-component { display: block; }</style>
+<script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init>
+</script>
+</head>
+<body>
+<div class="min-h-screen flex flex-col hero-mesh">
+<!-- component: HeaderNavigation (3fc0b93f-2469-4c46-b9c1-69537979aa14) -->
+  <div v-cloak v-scope="{ activeItem: 'membership', homeHref: 'index.html', aboutHref: 'about.html', eventsHref: 'events.html', tournamentsHref: 'tournaments.html', membershipHref: 'membership.html', coachesHref: 'coaches.html', blogHref: 'blog.html', contactHref: 'contact.html', ctaHref: 'free-trial.html', isMobileMenuOpen: false }">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#050508]/95 backdrop-blur-[20px] border-b border-white/5 px-5 md:px-12">
+      <div class="max-w-[1440px] mx-auto h-20 flex items-center justify-between relative">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 border border-[#e5e7eb]/10 rounded flex items-center justify-center">
+            <iconify-icon icon="fa6-solid:chess-knight" class="text-white text-xl"></iconify-icon>
+          </div>
+          <a href="index.html" class="flex flex-col">
+            <span class="font-bold text-[10px] sm:text-xs tracking-[0.3em] uppercase">Royal Knights</span>
+            <span class="text-[8px] sm:text-[9px] text-gray-500 font-medium tracking-[0.1em] uppercase">Est. 1924</span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden xl:flex flex-row flex-nowrap items-center gap-6 min-[1400px]:gap-8"><a :href="homeHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'home' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Home</a><a :href="aboutHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'about' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">About</a><a :href="eventsHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'events' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Events</a><a :href="tournamentsHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'tournaments' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Tournaments</a><a :href="membershipHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'membership' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Membership</a><a :href="coachesHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'coaches' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Coaches</a><a :href="blogHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'blog' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Blog</a><a :href="contactHref" class="text-[13px] font-medium tracking-wide transition-all flex-shrink-0" :class="activeItem === 'contact' ? 'text-white underline underline-offset-8 decoration-white/20' : 'text-white/50 hover:text-white'">Contact</a></nav>
+
+        <div class="flex items-center gap-4">
+          <a :href="ctaHref" class="hidden md:flex px-6 py-2.5 bg-white text-black text-[12px] font-bold uppercase tracking-widest rounded-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] min-h-[44px] items-center border border-white">Book Free Trial</a>
+          <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="xl:hidden w-11 h-11 p-2 text-white/70 cursor-pointer transition-all duration-200 hover:text-white hover:bg-white/5 active:scale-95 flex items-center justify-center rounded" style="min-height: 44px; min-width: 44px;">
+            <iconify-icon :icon="isMobileMenuOpen ? 'lucide:x' : 'lucide:menu'" class="text-2xl transition-transform duration-200"></iconify-icon>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Drawer -->
+    <div :class="{ 'fixed inset-0 overflow-hidden': isMobileMenuOpen, 'pointer-events-none': !isMobileMenuOpen }" class="z-[60] xl:hidden">
+      <div v-show="isMobileMenuOpen" @click="isMobileMenuOpen = false" class="fixed inset-0 bg-black/50 transition-opacity duration-300"></div>
+      <div v-show="isMobileMenuOpen" class="fixed right-0 top-0 h-screen w-full max-w-sm bg-[#050508] flex flex-col transition-transform duration-300 ease-out border-l border-white/5" :style="{ transform: isMobileMenuOpen ? 'translateX(0)' : 'translateX(100%)' }">
+        <div class="flex justify-between items-center p-6 border-b border-white/10">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 border border-white/10 rounded flex items-center justify-center">
+              <iconify-icon icon="fa6-solid:chess-knight" class="text-white text-lg"></iconify-icon>
+            </div>
+            <span class="font-bold text-xs tracking-[0.3em] uppercase text-white">Royal Knights</span>
+          </div>
+          <button @click="isMobileMenuOpen = false" class="p-4 min-h-[48px] min-w-[48px] flex items-center justify-center bg-transparent border-none cursor-pointer hover:bg-white/5 rounded transition-colors" aria-label="Close menu">
+            <iconify-icon icon="lucide:x" class="text-3xl text-white"></iconify-icon>
+          </button>
+        </div>
+        
+        <nav class="flex-1 overflow-y-auto p-6">
+          <div class="flex flex-col gap-1">
+            <a :href="homeHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'home' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:home" class="text-xl flex-shrink-0" :class="activeItem === 'home' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Home</span>
+            </a>
+            <a :href="aboutHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'about' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:info" class="text-xl flex-shrink-0" :class="activeItem === 'about' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>About</span>
+            </a>
+            <a :href="eventsHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'events' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:calendar" class="text-xl flex-shrink-0" :class="activeItem === 'events' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Events</span>
+            </a>
+            <a :href="tournamentsHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'tournaments' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:swords" class="text-xl flex-shrink-0" :class="activeItem === 'tournaments' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Tournaments</span>
+            </a>
+            <a :href="membershipHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'membership' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:credit-card" class="text-xl flex-shrink-0" :class="activeItem === 'membership' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Membership</span>
+            </a>
+            <a :href="coachesHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'coaches' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:users" class="text-xl flex-shrink-0" :class="activeItem === 'coaches' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Coaches</span>
+            </a>
+            <a :href="blogHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'blog' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:newspaper" class="text-xl flex-shrink-0" :class="activeItem === 'blog' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Blog</span>
+            </a>
+            <a :href="contactHref" @click="isMobileMenuOpen = false" class="px-6 py-4 text-xl font-light serif-title flex items-center gap-4 transition-colors rounded hover:bg-white/5" :class="activeItem === 'contact' ? 'text-white bg-white/10' : 'text-white/70'">
+              <iconify-icon icon="lucide:mail" class="text-xl flex-shrink-0" :class="activeItem === 'contact' ? 'text-white' : 'text-white/50'"></iconify-icon>
+              <span>Contact</span>
+            </a>
+          </div>
+        </nav>
+        
+        <div class="p-6 border-t border-white/10">
+          <a :href="ctaHref" @click="isMobileMenuOpen = false" class="w-full py-4 px-6 bg-white text-black text-center font-semibold uppercase tracking-widest block rounded-sm text-sm hover:bg-gray-100 active:bg-gray-200 transition-colors min-h-[56px] flex items-center justify-center">
+            Book Free Trial
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<main class="flex-1 pt-32 pb-24 px-5 md:px-12">
+<div class="container mx-auto max-w-4xl">
+<div class="text-center mb-16">
+<div class="flex items-center justify-center gap-3 mb-6">
+<span class="w-8 h-[1px] bg-white/30">
+</span>
+<span class="text-[10px] font-bold tracking-[0.4em] text-white/40 uppercase">Final Step</span>
+<span class="w-8 h-[1px] bg-white/30">
+</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-light tracking-tighter serif-title silver-gradient-text mb-6">Complete Your Profile</h1>
+<p class="text-lg text-white/40 font-light max-w-xl mx-auto">Verify your credentials and set your preferences to unlock the full potential of the Royal Knights arena.</p>
+</div>
+<div class="mb-12">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[10px] uppercase tracking-widest text-white/40">Profile Completion</span>
+<span class="text-[10px] uppercase tracking-widest text-white/40 font-bold">85%</span>
+</div>
+<div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="progress-bar h-full bg-white w-[85%] rounded-full">
+</div>
+</div>
+</div>
+<form onsubmit="alert('Profile setup complete! Welcome to the Royal Knights Chess Club.'); window.location.href='index.html'; return false;" class="space-y-12">
+<section class="glass-card p-8 md:p-12 rounded-3xl silver-border">
+<div class="flex items-center gap-4 mb-10">
+<iconify-icon icon="lucide:user" class="text-2xl text-white/40">
+</iconify-icon>
+<h3 class="text-2xl md:text-3xl serif-title font-light">Personal Information</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-2">
+<label class="text-[11px] uppercase tracking-widest text-white/40 font-bold ml-1">Full Name</label>
+<input type="text" placeholder="Magnus Carlsen" class="input-field rounded-xl px-5 py-4 text-white text-sm">
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[11px] uppercase tracking-widest text-white/40 font-bold ml-1">Email Address</label>
+<div class="relative">
+<input type="email" value="m.carlsen@grandmaster.com" class="input-field w-full rounded-xl px-5 py-4 pr-12 text-white text-sm border-green-500/30">
+<iconify-icon icon="lucide:check-circle" class="absolute right-4 top-1/2 -translate-y-1/2 text-green-500">
+</iconify-icon>
+</div>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-[11px] uppercase tracking-widest text-white/40 font-bold ml-1">Phone Number</label>
+<div class="flex gap-3">
+<select class="input-field rounded-xl px-4 py-4 text-white text-sm w-32">
+<option>+47 (NO)</option>
+<option>+1 (US)</option>
+<option>+44 (UK)</option>
+</select>
+<input type="tel" placeholder="000 000 000" class="input-field flex-1 rounded-xl px-5 py-4 text-white text-sm">
+</div>
+</div>
+</div>
+</section>
+<section class="glass-card p-8 md:p-12 rounded-3xl silver-border">
+<div class="flex items-center gap-4 mb-10">
+<iconify-icon icon="fa6-solid:chess-board" class="text-2xl text-white/40">
+</iconify-icon>
+<h3 class="text-2xl md:text-3xl serif-title font-light">Chess Profile</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-2">
+<label class="text-[11px] uppercase tracking-widest text-white/40 font-bold ml-1">Current ELO Rating</label>
+<select class="input-field rounded-xl px-5 py-4 text-white text-sm appearance-none">
+<option>Novice (Under 800)</option>
+<option>Intermediate (800-1400)</option>
+<option>Advanced (1400-2000)</option>
+<option selected>Expert (2000-2400)</option>
+<option>Grandmaster (2400+)</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[11px] uppercase tracking-widest text-white/40 font-bold ml-1">Playing Style</label>
+<select class="input-field rounded-xl px-5 py-4 text-white text-sm">
+<option>Tactical / Aggressive</option>
+<option>Positional / Strategic</option>
+<option selected>Balanced / Dynamic</option>
+</select>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-[11px] uppercase tracking-widest text-white/40 font-bold ml-1">Preferred Time Controls</label>
+<div class="flex flex-wrap gap-3 mt-2">
+<label class="cursor-pointer">
+<input type="checkbox" class="hidden peer" checked>
+<div class="px-5 py-2.5 rounded-full border border-white/10 text-[11px] uppercase tracking-widest peer-checked:bg-white peer-checked:text-black transition-all">Bullet (1m)</div>
+</label>
+<label class="cursor-pointer">
+<input type="checkbox" class="hidden peer" checked>
+<div class="px-5 py-2.5 rounded-full border border-white/10 text-[11px] uppercase tracking-widest peer-checked:bg-white peer-checked:text-black transition-all">Blitz (3m)</div>
+</label>
+<label class="cursor-pointer">
+<input type="checkbox" class="hidden peer">
+<div class="px-5 py-2.5 rounded-full border border-white/10 text-[11px] uppercase tracking-widest peer-checked:bg-white peer-checked:text-black transition-all">Rapid (10m)</div>
+</label>
+<label class="cursor-pointer">
+<input type="checkbox" class="hidden peer">
+<div class="px-5 py-2.5 rounded-full border border-white/10 text-[11px] uppercase tracking-widest peer-checked:bg-white peer-checked:text-black transition-all">Classical</div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<section class="glass-card p-8 md:p-12 rounded-3xl silver-border">
+<div class="flex items-center gap-4 mb-10">
+<iconify-icon icon="lucide:lock" class="text-2xl text-white/40">
+</iconify-icon>
+<h3 class="text-2xl md:text-3xl serif-title font-light">Security & Access</h3>
+</div>
+<div class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-2">
+<label class="text-[11px] uppercase tracking-widest text-white/40 font-bold ml-1">Create Password</label>
+<input type="password" value="••••••••••••" class="input-field rounded-xl px-5 py-4 text-white text-sm">
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[11px] uppercase tracking-widest text-white/40 font-bold ml-1">Confirm Password</label>
+<input type="password" value="••••••••••••" class="input-field rounded-xl px-5 py-4 text-white text-sm">
+</div>
+</div>
+<div class="flex items-center justify-between p-6 bg-white/5 rounded-2xl border border-white/5">
+<div class="flex items-center gap-4">
+<iconify-icon icon="lucide:shield-check" class="text-2xl text-white/40">
+</iconify-icon>
+<div>
+<h4 class="text-sm font-bold uppercase tracking-widest">Two-Factor Authentication</h4>
+<p class="text-xs text-white/30">Add an extra layer of security to your grandmaster account.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input type="checkbox" value="" class="sr-only peer" checked>
+<div class="w-12 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white/40 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-white peer-checked:after:bg-black">
+</div>
+</label>
+</div>
+</div>
+</section>
+<div class="flex flex-col sm:flex-row gap-6 justify-between items-center">
+<button type="button" onclick="alert('Draft progress saved successfully.')" class="order-2 sm:order-1 text-[11px] uppercase tracking-[0.3em] text-white/40 hover:text-white transition-colors py-4 px-8">Save as Draft</button>
+<button type="submit" class="order-1 sm:order-2 w-full sm:w-auto px-12 py-5 bg-white text-black text-[12px] font-bold uppercase tracking-[0.3em] rounded-sm transition-all hover:scale-105 active:scale-95">Complete Setup</button>
+</div>
+</form>
+</div>
+</main>
+    <!-- Global Footer (New Redesigned Premium Footer) -->
+  <div v-cloak v-scope="{ email: '' }">
+    <footer class="py-20 px-5 md:px-12 border-t border-white/10 bg-[#050508] relative overflow-hidden">
+      <!-- Glow effect inside footer -->
+      <div class="absolute bottom-0 right-0 w-[500px] h-[300px] bg-white/[0.01] rounded-full blur-[120px] pointer-events-none"></div>
+      
+      <div class="container mx-auto max-w-[1440px]">
+        <!-- Top Section: 4-Column Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-white/5 text-left">
+          
+          <!-- Column 1: Brand Info & Newsletter (Col-span-5) -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 border border-white/10 rounded flex items-center justify-center">
+                <iconify-icon icon="fa6-solid:chess-knight" class="text-white text-lg"></iconify-icon>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-bold text-[11px] sm:text-xs tracking-[0.3em] uppercase text-white">Royal Knights</span>
+                <span class="text-[8px] sm:text-[9px] text-white/40 tracking-[0.1em] uppercase">Est. 1924</span>
+              </div>
+            </div>
+            <p class="text-sm font-light text-white/50 leading-relaxed max-w-sm">
+              The world's most prestigious digital arena for strategic mastery and competition. Join our community to master the board.
+            </p>
+            <!-- Sleek Newsletter Signup -->
+            <form @submit.prevent="alert('Thank you for subscribing!')" class="flex items-center gap-2 max-w-sm pt-2">
+              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
+              <button type="submit" class="px-5 py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95">Subscribe</button>
+            </form>
+          </div>
+          
+          <!-- Column 2: Navigation Links (Col-span-2) -->
+          <div class="lg:col-span-2 space-y-4">
+            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">Platform</h4>
+            <ul class="space-y-2.5 text-[12px] font-light">
+              <li><a href="index.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Home</a></li>
+              <li><a href="about.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">About</a></li>
+              <li><a href="coaches.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Coaches</a></li>
+              <li><a href="programs.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Programs</a></li>
+              <li><a href="membership.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Membership</a></li>
+              <li><a href="testimonials.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Testimonials</a></li>
+            </ul>
+          </div>
+          
+          <!-- Column 3: Arena & Resources (Col-span-2) -->
+          <div class="lg:col-span-2 space-y-4">
+            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">Arena</h4>
+            <ul class="space-y-2.5 text-[12px] font-light">
+              <li><a href="tournaments.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Tournaments</a></li>
+              <li><a href="events.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Events</a></li>
+              <li><a href="puzzles.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Daily Puzzles</a></li>
+              <li><a href="gallery.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Gallery</a></li>
+              <li><a href="blog.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Blog</a></li>
+            </ul>
+          </div>
+          
+          <!-- Column 4: Contact & Details (Col-span-3) -->
+          <div class="lg:col-span-3 space-y-4">
+            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">Contact Info</h4>
+            <ul class="space-y-3 text-[12px] font-light text-white/50">
+              <li class="flex items-start gap-2.5">
+                <iconify-icon icon="lucide:map-pin" class="text-white/30 text-sm mt-0.5"></iconify-icon>
+                <span>120 Chess Master Drive, Suite 100, New York, NY 10001</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <iconify-icon icon="lucide:mail" class="text-white/30 text-sm"></iconify-icon>
+                <a href="mailto:contact@royalknights.com" class="hover:text-white transition-colors">contact@royalknights.com</a>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <iconify-icon icon="lucide:phone" class="text-white/30 text-sm"></iconify-icon>
+                <a href="tel:+15551241924" class="hover:text-white transition-colors">+1 (555) 124-1924</a>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+        
+        <!-- Bottom Section: Copyright and Socials -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-12 text-[11px] text-white/30 font-light">
+          <div class="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+            <p>&copy; 2026 Royal Knights Chess Club. All rights reserved.</p>
+            <span class="hidden md:inline text-white/10">|</span>
+            <div class="flex gap-4">
+              <a href="faq.html" class="hover:text-white transition-colors">FAQ</a>
+              <a href="contact.html" class="hover:text-white transition-colors">Support</a>
+              <a href="free-trial.html" class="hover:text-white transition-colors">Free Trial</a>
+            </div>
+          </div>
+          
+          <!-- Social Icons -->
+          <div class="flex gap-4 items-center">
+            <a href="#facebook" aria-label="Facebook" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+              <iconify-icon icon="brandico:facebook-rect" class="text-sm"></iconify-icon>
+            </a>
+            <a href="#twitter" aria-label="Twitter" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+              <iconify-icon icon="brandico:twitter-bird" class="text-sm"></iconify-icon>
+            </a>
+            <a href="#instagram" aria-label="Instagram" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+              <iconify-icon icon="brandico:instagram" class="text-sm"></iconify-icon>
+            </a>
+          </div>
+          
+          <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/10 hidden lg:block">
+            Strategy &bull; Discipline &bull; Mastery
+          </p>
+        </div>
+        
+      </div>
+    </footer>
+  </div>
+<!-- /component: Footer (14fe1a52-2ef6-44cb-9a11-c9c89675d742) -->
+</div>
+<script>let mobileMenuOpen = false; const initializeMobileMenu = () => { const menu = document.getElementById('mobile-menu'); const openBtn = document.getElementById('open-menu-btn'); const closeBtn = document.getElementById('close-menu-btn'); const body = document.body; if (!menu || !openBtn) return; menu.style.display = 'none'; const updateMenuDisplay = () => { if (mobileMenuOpen) { menu.style.display = 'flex'; menu.offsetHeight; menu.classList.add('open'); body.classList.add('overflow-hidden'); } else { menu.classList.remove('open'); body.classList.remove('overflow-hidden'); setTimeout(() => { if (!mobileMenuOpen) menu.style.display = 'none'; }, 400); } }; const toggleMenu = (state) => { mobileMenuOpen = state; updateMenuDisplay(); }; openBtn.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(true); }); if (closeBtn) { closeBtn.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(false); }); } menu.addEventListener('click', (e) => { if (e.target === menu) toggleMenu(false); }); const menuLinkIds = ['mobile-home', 'mobile-membership', 'mobile-events', 'mobile-news', 'mobile-contact', 'mobile-join-btn']; menuLinkIds.forEach(id => { const link = document.getElementById(id); if (link) link.addEventListener('click', () => toggleMenu(false)); }); }; document.addEventListener('DOMContentLoaded', () => { setTimeout(initializeMobileMenu, 100); });</script>
+</body>
+</html>
+
+

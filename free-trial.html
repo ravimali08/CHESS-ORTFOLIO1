@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- White Flash Fix -->
+  <style>
+    html, body {
+      background-color: #050508 !important;
+      background: #050508 !important;
+    }
+  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="view-transition" content="same-origin">
+<script src="https://cdn.tailwindcss.com">
+</script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js">
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style> @view-transition { navigation: auto; } :root { --bg-deep: #050508; --bg-card: #0c0c14; --accent-silver: #e5e7eb; --accent-subtle: #4b5563; } body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050508 !important; color: #fff; overflow-x: hidden; line-height: 1.6; } .serif-title { font-family: 'Crimson Pro', serif; } .hero-mesh { background-image: radial-gradient(circle at 80% 20%, rgba(229, 231, 235, 0.08) 0%, rgba(0,0,0,0) 50%), radial-gradient(circle at 20% 80%, rgba(229, 231, 235, 0.05) 0%, rgba(0,0,0,0) 50%); } .silver-border { border: 1px solid rgba(229, 231, 235, 0.1); } .silver-gradient-text { background: linear-gradient(180deg, #fff 0%, #9ca3af 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding-bottom: 0.1em; margin-bottom: -0.1em; display: inline-block; } .glass-card { background: rgba(12, 12, 20, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); } .input-field { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; } .input-field:focus { border-color: var(--accent-silver); outline: none; background: rgba(255, 255, 255, 0.05); box-shadow: 0 0 15px rgba(229, 231, 235, 0.05); } select option { background-color: #0c0c14; color: #fff; } 
+[v-cloak] { display: none !important; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init>
+</script>
+</head>
+<body class="hero-mesh min-h-screen flex items-center justify-center">
+<div v-cloak v-scope="{ name: '', email: '', phone: '', level: 'beginner', submitted: false }" class="w-full">
+<!-- Brand Top Header (Distraction-Free, No Links) -->
+<header class="absolute top-0 left-0 right-0 p-6 md:p-8 flex items-center justify-between z-50">
+<a href="index.html" class="flex items-center gap-3">
+<div class="w-8 h-8 border border-white/10 rounded flex items-center justify-center">
+<iconify-icon icon="fa6-solid:chess-knight" class="text-white text-lg">
+</iconify-icon>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-[10px] tracking-[0.3em] uppercase text-white">Royal Knights</span>
+<span class="text-[7px] text-gray-500 font-medium tracking-[0.1em] uppercase">Est. 1924</span>
+</div>
+</a>
+<a href="index.html" class="text-xs text-white/40 hover:text-white uppercase tracking-widest transition-colors flex items-center gap-1.5">
+<iconify-icon icon="lucide:arrow-left">
+</iconify-icon> Back to Home </a>
+</header>
+<!-- Main Container: Split screen on Desktop, Stack on Mobile -->
+<main class="w-full max-w-[1440px] mx-auto px-6 md:px-12 pt-28 pb-12 min-h-[calc(100vh-80px)] flex items-center">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start w-full">
+<!-- Left Side: Copy and values -->
+<div class="lg:col-span-6 space-y-8 text-left">
+<div class="inline-flex items-center gap-3">
+<span class="w-8 h-[1px] bg-white/30">
+</span>
+<span class="text-[10px] font-bold tracking-[0.4em] text-white/40 uppercase">Exclusive Offer</span>
+</div>
+<h1 class="text-4xl sm:text-5xl md:text-6xl font-light tracking-tighter serif-title leading-tight silver-gradient-text"> Master the Board.<br>Claim Your Free Session. </h1>
+<p class="text-base sm:text-lg text-white/50 font-light max-w-xl"> Book a complimentary evaluation with one of our FIDE Grandmaster coaches. No credit card required. </p>
+<!-- Bullet Points -->
+<ul class="space-y-6 max-w-lg">
+<li class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-white mt-1">
+<iconify-icon icon="lucide:check-circle" class="text-lg">
+</iconify-icon>
+</div>
+<div>
+<h4 class="text-base font-bold text-white">1-on-1 Grandmaster Evaluation</h4>
+<p class="text-sm text-white/40 font-light mt-0.5" style="line-height: 1.5;">Get your current play style and tactical patterns personally analyzed by a certified GM.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-white mt-1">
+<iconify-icon icon="lucide:check-circle" class="text-lg">
+</iconify-icon>
+</div>
+<div>
+<h4 class="text-base font-bold text-white">Full Academy Access (7 Days)</h4>
+<p class="text-sm text-white/40 font-light mt-0.5" style="line-height: 1.5;">Access our complete library of masterclasses, endgame tutorials, and daily archives.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-white mt-1">
+<iconify-icon icon="lucide:check-circle" class="text-lg">
+</iconify-icon>
+</div>
+<div>
+<h4 class="text-base font-bold text-white">Personalized ELO Roadmap</h4>
+<p class="text-sm text-white/40 font-light mt-0.5" style="line-height: 1.5;">Receive a custom training curriculum designed to accelerate your chess rating.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Right Side: Lead capture Form -->
+<div class="lg:col-span-6 w-full max-w-xl mx-auto">
+<!-- Form Card -->
+<div class="glass-card p-8 md:p-12 rounded-[2rem] border border-white/5 relative overflow-hidden">
+<!-- Form State -->
+<form v-if="!submitted" @submit.prevent="submitted = true" class="space-y-6 text-left">
+<h3 class="text-2xl font-light serif-title text-white mb-6">Request Invitation</h3>
+<!-- Full Name -->
+<div>
+<label for="name" class="block text-[10px] font-bold uppercase tracking-widest text-white/40 mb-2">Full Name</label>
+<input type="text" id="name" v-model="name" required placeholder="e.g. Alexander Alekhine" class="w-full px-5 py-4 rounded-xl input-field text-white text-sm" style="min-height: 52px;" >
+</div>
+<!-- Email -->
+<div>
+<label for="email" class="block text-[10px] font-bold uppercase tracking-widest text-white/40 mb-2">Email Address</label>
+<input type="email" id="email" v-model="email" required placeholder="name@domain.com" class="w-full px-5 py-4 rounded-xl input-field text-white text-sm" style="min-height: 52px;" >
+</div>
+<!-- Phone -->
+<div>
+<label for="phone" class="block text-[10px] font-bold uppercase tracking-widest text-white/40 mb-2">Phone Number</label>
+<input type="tel" id="phone" v-model="phone" required placeholder="+1 (555) 000-0000" class="w-full px-5 py-4 rounded-xl input-field text-white text-sm" style="min-height: 52px;" >
+</div>
+<!-- Chess Level -->
+<div>
+<label for="level" class="block text-[10px] font-bold uppercase tracking-widest text-white/40 mb-2">Current Chess Level</label>
+<select id="level" v-model="level" class="w-full px-5 py-4 rounded-xl input-field text-white/80 text-sm appearance-none bg-[#050508]" style="min-height: 52px;" >
+<option value="beginner">Beginner (Under 1000 ELO)</option>
+<option value="intermediate">Intermediate (1000 - 1600 ELO)</option>
+<option value="advanced">Advanced (1600 - 2000 ELO)</option>
+<option value="master">Expert / Master (2000+ ELO)</option>
+</select>
+</div>
+<!-- Submit button -->
+<button type="submit" class="w-full py-4.5 bg-white text-black font-bold uppercase tracking-widest text-sm rounded-xl hover:bg-neutral-100 transition-colors btn-hover flex items-center justify-center min-h-[54px] shadow-2xl" > Submit & Book </button>
+<p class="text-[10px] text-white/20 text-center uppercase tracking-wider"> We value your privacy. Cancel subscription or evaluation requests anytime. </p>
+</form>
+<!-- Success State -->
+<div v-else class="text-center py-12 space-y-6">
+<div class="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center mx-auto text-2xl animate-pulse shadow-xl">
+<iconify-icon icon="lucide:check">
+</iconify-icon>
+</div>
+<h3 class="text-3xl font-light serif-title text-white">Booking Confirmed</h3>
+<p class="text-sm text-white/60 font-light max-w-sm mx-auto leading-relaxed" style="line-height: 1.6;"> Thank you, <strong class="text-white font-semibold">{{ name }}</strong>! We have sent a confirmation email to <strong class="text-white">{{ email }}</strong>. One of our Grandmaster coaches will call you shortly to schedule your trial evaluation. </p>
+<div class="pt-6">
+<a href="index.html" class="inline-block px-8 py-3.5 bg-white/5 border border-white/10 text-white font-bold uppercase tracking-widest text-[11px] rounded-xl hover:bg-white/10 transition-colors">Return to Home</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body>
+</html>
+
+
+
