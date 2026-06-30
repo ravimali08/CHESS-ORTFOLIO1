@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- White Flash Fix -->
@@ -24,7 +24,7 @@
 <style>sd-component { display: block; }</style>
 <script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init>
 </script>
-</head>
+<style> img, video, [style*="background-image"], .bg-cover, .bg-center, .hero-mesh { filter: grayscale(100%) !important; }</style></head>
 <body>
 <div class="min-h-screen flex flex-col hero-mesh">
 <!-- Global Header & Mobile Menu Container -->
@@ -296,7 +296,7 @@
 <div class="font-medium text-white">Masterclass Access</div>
 <div class="text-xs text-white/40 font-light mt-1">Interactive lessons hosted by GMs and IMs.</div>
 </td>
-<td class="text-center py-6 text-white/20">â€”</td>
+<td class="text-center py-6 text-white/20">Ã¢â‚¬â€</td>
 <td class="text-center py-6 text-white/60 text-xs uppercase tracking-wider font-medium">Standard</td>
 <td class="text-center py-6 text-white text-xs uppercase tracking-wider font-semibold">Priority</td>
 <td class="text-center py-6 text-white text-xs uppercase tracking-wider font-bold">VIP Early</td>
@@ -318,8 +318,8 @@
 <div class="font-medium text-white">1-on-1 GM Coaching</div>
 <div class="text-xs text-white/40 font-light mt-1">Private lessons tailored to your opening prep.</div>
 </td>
-<td class="text-center py-6 text-white/20">â€”</td>
-<td class="text-center py-6 text-white/20">â€”</td>
+<td class="text-center py-6 text-white/20">Ã¢â‚¬â€</td>
+<td class="text-center py-6 text-white/20">Ã¢â‚¬â€</td>
 <td class="text-center py-6 text-white text-xs uppercase tracking-wider font-medium">1 Hour / Mo</td>
 <td class="text-center py-6 text-white text-xs uppercase tracking-wider font-bold">Unlimited</td>
 </tr>
@@ -329,7 +329,7 @@
 <div class="font-medium text-white">Exclusive Tournaments</div>
 <div class="text-xs text-white/40 font-light mt-1">FIDE-rated opens and closed club championships.</div>
 </td>
-<td class="text-center py-6 text-white/20">â€”</td>
+<td class="text-center py-6 text-white/20">Ã¢â‚¬â€</td>
 <td class="text-center py-6">
 <iconify-icon icon="lucide:check" class="text-white/60 text-lg">
 </iconify-icon>
@@ -482,5 +482,6 @@
 <script> const observerOptions = { threshold: 0.1 }; const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("active"); } }); }, observerOptions); document.addEventListener("DOMContentLoaded", () => { const revealElements = document.querySelectorAll("section, .group, .col-span-12, .card-glass"); revealElements.forEach(el => { el.classList.add("reveal"); observer.observe(el); }); }); </script>
 </body>
 </html>
+
 
 

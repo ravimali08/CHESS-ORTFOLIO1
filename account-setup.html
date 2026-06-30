@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- White Flash Fix -->
@@ -31,7 +31,7 @@
 <style>sd-component { display: block; }</style>
 <script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init>
 </script>
-</head>
+<style> img, video, [style*="background-image"], .bg-cover, .bg-center, .hero-mesh { filter: grayscale(100%) !important; }</style></head>
 <body>
 <div class="min-h-screen flex flex-col hero-mesh">
 <!-- component: HeaderNavigation (3fc0b93f-2469-4c46-b9c1-69537979aa14) -->
@@ -235,11 +235,11 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <div class="flex flex-col gap-2">
 <label class="text-[11px] uppercase tracking-widest text-white/40 font-bold ml-1">Create Password</label>
-<input type="password" value="••••••••••••" class="input-field rounded-xl px-5 py-4 text-white text-sm">
+<input type="password" value="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" class="input-field rounded-xl px-5 py-4 text-white text-sm">
 </div>
 <div class="flex flex-col gap-2">
 <label class="text-[11px] uppercase tracking-widest text-white/40 font-bold ml-1">Confirm Password</label>
-<input type="password" value="••••••••••••" class="input-field rounded-xl px-5 py-4 text-white text-sm">
+<input type="password" value="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" class="input-field rounded-xl px-5 py-4 text-white text-sm">
 </div>
 </div>
 <div class="flex items-center justify-between p-6 bg-white/5 rounded-2xl border border-white/5">
@@ -381,5 +381,6 @@
 <script>let mobileMenuOpen = false; const initializeMobileMenu = () => { const menu = document.getElementById('mobile-menu'); const openBtn = document.getElementById('open-menu-btn'); const closeBtn = document.getElementById('close-menu-btn'); const body = document.body; if (!menu || !openBtn) return; menu.style.display = 'none'; const updateMenuDisplay = () => { if (mobileMenuOpen) { menu.style.display = 'flex'; menu.offsetHeight; menu.classList.add('open'); body.classList.add('overflow-hidden'); } else { menu.classList.remove('open'); body.classList.remove('overflow-hidden'); setTimeout(() => { if (!mobileMenuOpen) menu.style.display = 'none'; }, 400); } }; const toggleMenu = (state) => { mobileMenuOpen = state; updateMenuDisplay(); }; openBtn.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(true); }); if (closeBtn) { closeBtn.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(false); }); } menu.addEventListener('click', (e) => { if (e.target === menu) toggleMenu(false); }); const menuLinkIds = ['mobile-home', 'mobile-membership', 'mobile-events', 'mobile-news', 'mobile-contact', 'mobile-join-btn']; menuLinkIds.forEach(id => { const link = document.getElementById(id); if (link) link.addEventListener('click', () => toggleMenu(false)); }); }; document.addEventListener('DOMContentLoaded', () => { setTimeout(initializeMobileMenu, 100); });</script>
 </body>
 </html>
+
 
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- White Flash Fix -->
@@ -101,7 +101,7 @@
 [v-cloak] { display: none !important; }
 </style>
   <script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init></script>
-</head>
+<style> img, video, [style*="background-image"], .bg-cover, .bg-center, .hero-mesh { filter: grayscale(100%) !important; }</style></head>
 <body class="hero-mesh min-h-screen flex flex-col">
   <!-- Global Header & Mobile Menu Container -->
   <div v-cloak v-scope="{ activeItem: 'blog', homeHref: 'index.html', aboutHref: 'about.html', eventsHref: 'events.html', tournamentsHref: 'tournaments.html', membershipHref: 'membership.html', coachesHref: 'coaches.html', blogHref: 'blog.html', contactHref: 'contact.html', ctaHref: 'free-trial.html', isMobileMenuOpen: false }">
@@ -246,7 +246,7 @@
           const ranks = ['8','7','6','5','4','3','2','1'];
           const fromSquare = files[this.selectedSquare % 8] + ranks[Math.floor(this.selectedSquare / 8)];
           const toSquare = files[idx % 8] + ranks[Math.floor(idx / 8)];
-          this.movesList.push(piece.type.toUpperCase() + fromSquare + '→' + toSquare);
+          this.movesList.push(piece.type.toUpperCase() + fromSquare + 'â†’' + toSquare);
         }
         this.selectedSquare = null;
       }
@@ -575,3 +575,4 @@
   </script>
 </body>
 </html>
+

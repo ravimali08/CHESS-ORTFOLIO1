@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- White Flash Fix -->
@@ -29,7 +29,7 @@
 <style>sd-component { display: block; }</style>
 <script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init>
 </script>
-</head>
+<style> img, video, [style*="background-image"], .bg-cover, .bg-center, .hero-mesh { filter: grayscale(100%) !important; }</style></head>
 <body>
 <div class="min-h-screen flex flex-col hero-mesh">
 <!-- Global Header & Mobile Menu Container -->
@@ -200,7 +200,7 @@
 <div class="flex flex-col gap-1">
 <span class="text-[9px] font-bold tracking-widest text-white/40 uppercase">Puzzle #841</span>
 <h4 class="text-sm font-semibold">Sicilian Sacrifice</h4>
-<span class="text-[10px] text-white/30">Medium â€¢ 1,800 Rating</span>
+<span class="text-[10px] text-white/30">Medium Ã¢â‚¬Â¢ 1,800 Rating</span>
 </div>
 </div>
 <div class="puzzle-card group silver-border bg-white/5 p-4 rounded-2xl cursor-pointer flex gap-4 items-center">
@@ -210,7 +210,7 @@
 <div class="flex flex-col gap-1">
 <span class="text-[9px] font-bold tracking-widest text-white/40 uppercase">Puzzle #840</span>
 <h4 class="text-sm font-semibold">Endgame Precision</h4>
-<span class="text-[10px] text-white/30">Easy â€¢ 1,200 Rating</span>
+<span class="text-[10px] text-white/30">Easy Ã¢â‚¬Â¢ 1,200 Rating</span>
 </div>
 </div>
 <div class="puzzle-card group silver-border bg-white/5 p-4 rounded-2xl cursor-pointer flex gap-4 items-center">
@@ -220,7 +220,7 @@
 <div class="flex flex-col gap-1">
 <span class="text-[9px] font-bold tracking-widest text-white/40 uppercase">Puzzle #839</span>
 <h4 class="text-sm font-semibold">Grandmaster Blunder</h4>
-<span class="text-[10px] text-white/30">Expert â€¢ 2,600 Rating</span>
+<span class="text-[10px] text-white/30">Expert Ã¢â‚¬Â¢ 2,600 Rating</span>
 </div>
 </div>
 </div>
@@ -357,5 +357,6 @@
 <script> const observerOptions = { threshold: 0.1 }; const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("active"); } }); }, observerOptions); document.addEventListener("DOMContentLoaded", () => { const revealElements = document.querySelectorAll("section, .group, .col-span-12, .card-glass"); revealElements.forEach(el => { el.classList.add("reveal"); observer.observe(el); }); }); </script>
 </body>
 </html>
+
 
 

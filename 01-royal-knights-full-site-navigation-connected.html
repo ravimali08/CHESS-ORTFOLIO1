@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -22,7 +22,7 @@
 <style>sd-component { display: block; }</style>
 <script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init>
 </script>
-</head>
+<style> img, video, [style*="background-image"], .bg-cover, .bg-center, .hero-mesh { filter: grayscale(100%) !important; }</style></head>
 <body>
 <div class="min-h-screen flex flex-col hero-mesh">
 <!-- Navigation Header -->
@@ -304,5 +304,6 @@
 <script> // Scroll Reveal functionality const observerOptions = { threshold: 0.1 }; const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } }); }, observerOptions); // Apply classes for reveal document.addEventListener('DOMContentLoaded', () => { const revealElements = document.querySelectorAll('section, .group, .col-span-12'); // Mobile Menu State Management let mobileMenuOpen = false; const initializeMobileMenu = () => { const menu = document.getElementById('mobile-menu'); const openBtn = document.getElementById('open-menu-btn'); const closeBtn = document.getElementById('close-menu-btn'); const body = document.body; if (!menu || !openBtn) return; // Initial state menu.style.display = 'none'; const updateMenuDisplay = () => { if (mobileMenuOpen) { menu.style.display = 'flex'; // Force reflow to ensure transition runs menu.offsetHeight; menu.classList.add('open'); body.classList.add('overflow-hidden'); } else { menu.classList.remove('open'); body.classList.remove('overflow-hidden'); // Hide element after transition completes setTimeout(() => { if (!mobileMenuOpen) menu.style.display = 'none'; }, 400); } }; const toggleMenu = (state) => { mobileMenuOpen = state; updateMenuDisplay(); }; // Listeners openBtn.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(true); }); if (closeBtn) { closeBtn.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(false); }); } // Backdrop click functionality menu.addEventListener('click', (e) => { if (e.target === menu) { toggleMenu(false); } }); // Close on any navigation link click const menuLinkIds = ['mobile-home', 'mobile-membership', 'mobile-events', 'mobile-news', 'mobile-contact', 'mobile-join-btn']; menuLinkIds.forEach(id => { const link = document.getElementById(id); if (link) { link.addEventListener('click', () => toggleMenu(false)); } }); }; // Run initialization with a small delay to ensure components are rendered setTimeout(initializeMobileMenu, 100); revealElements.forEach(el => { el.classList.add('reveal'); observer.observe(el); }); }); </script>
 </body>
 </html>
+
 
 

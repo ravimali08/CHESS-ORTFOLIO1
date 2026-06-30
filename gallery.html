@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- White Flash Fix -->
@@ -30,7 +30,7 @@
 </style>
 <script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init>
 </script>
-</head>
+<style> img, video, [style*="background-image"], .bg-cover, .bg-center, .hero-mesh { filter: grayscale(100%) !important; }</style></head>
 <body class="hero-mesh min-h-screen flex flex-col" v-cloak v-scope="{ lightboxUrl: null }">
 <!-- Global Header & Mobile Menu Container -->
 <div v-cloak v-scope="{ activeItem: 'gallery', homeHref: 'index.html', aboutHref: 'about.html', eventsHref: 'events.html', tournamentsHref: 'tournaments.html', membershipHref: 'membership.html', coachesHref: 'coaches.html', blogHref: 'blog.html', contactHref: 'contact.html', ctaHref: 'free-trial.html', isMobileMenuOpen: false }">
@@ -367,6 +367,7 @@
 <script> const observerOptions = { threshold: 0.1 }; const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("active"); } }); }, observerOptions); document.addEventListener("DOMContentLoaded", () => { const revealElements = document.querySelectorAll("section, .group, .col-span-12, .card-glass"); revealElements.forEach(el => { el.classList.add("reveal"); observer.observe(el); }); }); </script>
 </body>
 </html>
+
 
 
 
