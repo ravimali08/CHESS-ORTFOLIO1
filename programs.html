@@ -31,7 +31,7 @@
 <style>sd-component { display: block; }</style>
 <script src="https://cdn.jsdelivr.net/npm/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init>
 </script>
-<style> img, video, [style*="background-image"], .bg-cover, .bg-center, .hero-mesh { filter: grayscale(100%) !important; }</style></head>
+</head>
 <body>
 <div class="min-h-screen flex flex-col hero-mesh">
 <!-- component: HeaderNavigation -->
@@ -377,6 +377,7 @@
 <script> const observerOptions = { threshold: 0.1 }; const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("active"); } }); }, observerOptions); document.addEventListener("DOMContentLoaded", () => { const revealElements = document.querySelectorAll("section, .group, .col-span-12, .card-glass"); revealElements.forEach(el => { el.classList.add("reveal"); observer.observe(el); }); }); </script>
 </body>
 </html>
+
 
 
 
