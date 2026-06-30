@@ -7,7 +7,14 @@
       background-color: #050508 !important;
       background: #050508 !important;
     }
-  </style>
+  
+    /* Prevent iOS input auto-zoom on mobile */
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="view-transition" content="same-origin">
@@ -156,7 +163,7 @@
       const details = {
         bronze: { 
           name: 'Bronze Plan', 
-          price: 19, 
+          price: 99, 
           desc: 'Daily Curated Puzzles & Forums',
           features: ['Daily curated puzzles', 'Basic engine analysis', 'Global Elo rankings'],
           cardClass: 'from-[#3b2111] via-[#1c0f0a] to-[#4c2d1b] border-[#9c5f3b]/30 text-amber-200/90',
@@ -165,7 +172,7 @@
         },
         silver: { 
           name: 'Silver Plan', 
-          price: 49, 
+          price: 299, 
           desc: 'Foundations Curriculum & ELO roadmaps',
           features: ['Everything in Bronze', 'Weekly masterclasses', 'Advanced move analysis'],
           cardClass: 'from-[#1e293b] via-[#0f172a] to-[#334155] border-[#64748b]/30 text-blue-100/90',
@@ -174,7 +181,7 @@
         },
         gold: { 
           name: 'Gold Plan', 
-          price: 99, 
+          price: 499, 
           desc: 'Masterclass Access & FIDE tournaments',
           features: ['Everything in Silver', '1-on-1 coaching (1hr)', 'Exclusive tournaments'],
           cardClass: 'from-[#3d311d] via-[#1c150b] to-[#4f4028] border-[#b89453]/30 text-yellow-100/90',
@@ -183,7 +190,7 @@
         },
         platinum: { 
           name: 'Platinum Elite', 
-          price: 249, 
+          price: 799, 
           desc: '1-on-1 GM Coaching & custom prep files',
           features: ['Full VIP Privileges', 'Unlimited 1-on-1 GM coaching', 'In-person club access'],
           cardClass: 'from-[#2e1d4d] via-[#130b24] to-[#3f2966] border-[#8b5cf6]/30 text-purple-200/90',
@@ -431,19 +438,19 @@
           <div class="flex flex-col gap-2 bg-white/[0.02] border border-white/5 p-2 rounded-2xl">
             <button @click="plan = 'bronze'" :class="plan === 'bronze' ? 'bg-white text-black font-semibold' : 'text-white/60 hover:text-white hover:bg-white/5'" class="w-full py-3 px-4 text-left text-xs uppercase font-bold tracking-widest rounded-xl transition-all flex justify-between items-center">
               <span>Bronze Plan</span>
-              <span class="text-[10px] opacity-75">$19/mo</span>
+              <span class="text-[10px] opacity-75">$99/mo</span>
             </button>
             <button @click="plan = 'silver'" :class="plan === 'silver' ? 'bg-white text-black font-semibold' : 'text-white/60 hover:text-white hover:bg-white/5'" class="w-full py-3 px-4 text-left text-xs uppercase font-bold tracking-widest rounded-xl transition-all flex justify-between items-center">
               <span>Silver Plan</span>
-              <span class="text-[10px] opacity-75">$49/mo</span>
+              <span class="text-[10px] opacity-75">$299/mo</span>
             </button>
             <button @click="plan = 'gold'" :class="plan === 'gold' ? 'bg-white text-black font-semibold' : 'text-white/60 hover:text-white hover:bg-white/5'" class="w-full py-3 px-4 text-left text-xs uppercase font-bold tracking-widest rounded-xl transition-all flex justify-between items-center">
               <span>Gold Plan</span>
-              <span class="text-[10px] opacity-75">$99/mo</span>
+              <span class="text-[10px] opacity-75">$499/mo</span>
             </button>
             <button @click="plan = 'platinum'" :class="plan === 'platinum' ? 'bg-white text-black font-semibold' : 'text-white/60 hover:text-white hover:bg-white/5'" class="w-full py-3 px-4 text-left text-xs uppercase font-bold tracking-widest rounded-xl transition-all flex justify-between items-center">
               <span>Platinum Elite</span>
-              <span class="text-[10px] opacity-75">$249/mo</span>
+              <span class="text-[10px] opacity-75">$799/mo</span>
             </button>
           </div>
 

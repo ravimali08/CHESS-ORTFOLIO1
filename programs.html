@@ -7,7 +7,14 @@
       background-color: #050508 !important;
       background: #050508 !important;
     }
-  </style>
+  
+    /* Prevent iOS input auto-zoom on mobile */
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="view-transition" content="same-origin">
@@ -194,7 +201,7 @@
 <!-- Coach 1 -->
 <div class="card-glass overflow-hidden rounded-[2rem]">
 <div class="aspect-[4/5] bg-neutral-900 overflow-hidden relative">
-<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" alt="GM Alex Petrov" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" alt="GM Alex Petrov" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" decoding="async">
 </div>
 <div class="p-6 bg-[#0c0c14]">
 <h4 class="text-lg font-bold text-white mb-1">GM Alex Petrov</h4>
@@ -209,7 +216,7 @@
 <!-- Coach 2 -->
 <div class="card-glass overflow-hidden rounded-[2rem]">
 <div class="aspect-[4/5] bg-neutral-900 overflow-hidden relative">
-<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" alt="GM Dmitry Volkov" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" alt="GM Dmitry Volkov" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" decoding="async" loading="lazy">
 </div>
 <div class="p-6 bg-[#0c0c14]">
 <h4 class="text-lg font-bold text-white mb-1">GM Dmitry Volkov</h4>
@@ -224,7 +231,7 @@
 <!-- Coach 3 -->
 <div class="card-glass overflow-hidden rounded-[2rem]">
 <div class="aspect-[4/5] bg-neutral-900 overflow-hidden relative">
-<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400" alt="WGM Sophia Martinez" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400" alt="WGM Sophia Martinez" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" decoding="async" loading="lazy">
 </div>
 <div class="p-6 bg-[#0c0c14]">
 <h4 class="text-lg font-bold text-white mb-1">WGM Sophia Martinez</h4>
@@ -239,7 +246,7 @@
 <!-- Coach 4 -->
 <div class="card-glass overflow-hidden rounded-[2rem]">
 <div class="aspect-[4/5] bg-neutral-900 overflow-hidden relative">
-<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" alt="GM Marcus Sterling" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" alt="GM Marcus Sterling" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" decoding="async" loading="lazy">
 </div>
 <div class="p-6 bg-[#0c0c14]">
 <h4 class="text-lg font-bold text-white mb-1">GM Marcus Sterling</h4>
@@ -283,8 +290,8 @@
             </p>
             <!-- Sleek Newsletter Signup -->
             <form @submit.prevent="alert('Thank you for subscribing!')" class="flex items-center gap-2 max-w-sm pt-2">
-              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
-              <button type="submit" class="px-5 py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95">Subscribe</button>
+              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-3 md:py-2.5 text-base md:text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
+              <button type="submit" class="px-5 py-3.5 md:py-2.5 bg-white text-black hover:bg-neutral-200 text-base md:text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95 inline-block text-center">Subscribe</button>
             </form>
           </div>
           
@@ -348,13 +355,13 @@
           
           <!-- Social Icons -->
           <div class="flex gap-4 items-center">
-            <a href="#facebook" aria-label="Facebook" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#facebook" aria-label="Facebook" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:facebook-rect" class="text-sm"></iconify-icon>
             </a>
-            <a href="#twitter" aria-label="Twitter" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#twitter" aria-label="Twitter" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:twitter-bird" class="text-sm"></iconify-icon>
             </a>
-            <a href="#instagram" aria-label="Instagram" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#instagram" aria-label="Instagram" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:instagram" class="text-sm"></iconify-icon>
             </a>
           </div>

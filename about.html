@@ -7,7 +7,14 @@
       background-color: #050508 !important;
       background: #050508 !important;
     }
-  </style>
+  
+    /* Prevent iOS input auto-zoom on mobile */
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="view-transition" content="same-origin">
@@ -196,7 +203,7 @@
             <!-- Gallery Item 1 -->
             <div class="card-glass overflow-hidden rounded-[2rem] border border-white/5 shadow-2xl flex flex-col justify-between">
               <div class="h-64 overflow-hidden relative">
-                <img src="blog-img-4.jpg" alt="Study Group" class="w-full h-full object-cover grayscale transition-transform duration-750 hover:scale-105">
+                <img src="blog-img-4.jpg" alt="Study Group" class="w-full h-full object-cover grayscale transition-transform duration-750 hover:scale-105" decoding="async">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c14]/50 via-transparent to-transparent"></div>
               </div>
               <div class="p-8">
@@ -208,7 +215,7 @@
             <!-- Gallery Item 2 -->
             <div class="card-glass overflow-hidden rounded-[2rem] border border-white/5 shadow-2xl flex flex-col justify-between">
               <div class="h-64 overflow-hidden relative">
-                <img src="blog-img-5.jpg" alt="Tournament Hall" class="w-full h-full object-cover grayscale transition-transform duration-750 hover:scale-105">
+                <img src="blog-img-5.jpg" alt="Tournament Hall" class="w-full h-full object-cover grayscale transition-transform duration-750 hover:scale-105" decoding="async" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c14]/50 via-transparent to-transparent"></div>
               </div>
               <div class="p-8">
@@ -220,7 +227,7 @@
             <!-- Gallery Item 3 -->
             <div class="card-glass overflow-hidden rounded-[2rem] border border-white/5 shadow-2xl flex flex-col justify-between">
               <div class="h-64 overflow-hidden relative">
-                <img src="blog-img-6.png" alt="Casual Blitz Match" class="w-full h-full object-cover grayscale transition-transform duration-750 hover:scale-105">
+                <img src="blog-img-6.png" alt="Casual Blitz Match" class="w-full h-full object-cover grayscale transition-transform duration-750 hover:scale-105" decoding="async" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0c0c14]/50 via-transparent to-transparent"></div>
               </div>
               <div class="p-8">
@@ -260,19 +267,19 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Photo 1 -->
             <div class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900">
-              <img src="about-img-1.jpg" alt="Tournament Chess Setup" class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-750 group-hover:scale-105">
+              <img src="about-img-1.jpg" alt="Tournament Chess Setup" class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-750 group-hover:scale-105" decoding="async" loading="lazy">
             </div>
             <!-- Photo 2 -->
             <div class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900">
-              <img src="about-img-2.jpg" alt="Strategic Match Play" class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-750 group-hover:scale-105">
+              <img src="about-img-2.jpg" alt="Strategic Match Play" class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-750 group-hover:scale-105" decoding="async" loading="lazy">
             </div>
             <!-- Photo 3 -->
             <div class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900">
-              <img src="about-img-3.jpg" alt="Tactical Cafe Board Analysis" class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-750 group-hover:scale-105">
+              <img src="about-img-3.jpg" alt="Tactical Cafe Board Analysis" class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-750 group-hover:scale-105" decoding="async" loading="lazy">
             </div>
             <!-- Photo 4 -->
             <div class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900">
-              <img src="about-img-4.jpg" alt="Chess Study Session" class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-750 group-hover:scale-105">
+              <img src="about-img-4.jpg" alt="Chess Study Session" class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-750 group-hover:scale-105" decoding="async" loading="lazy">
             </div>
           </div>
         </div>
@@ -307,8 +314,8 @@
             </p>
             <!-- Sleek Newsletter Signup -->
             <form @submit.prevent="alert('Thank you for subscribing!')" class="flex items-center gap-2 max-w-sm pt-2">
-              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
-              <button type="submit" class="px-5 py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95">Subscribe</button>
+              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-3 md:py-2.5 text-base md:text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
+              <button type="submit" class="px-5 py-3.5 md:py-2.5 bg-white text-black hover:bg-neutral-200 text-base md:text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95 inline-block text-center">Subscribe</button>
             </form>
           </div>
           
@@ -372,13 +379,13 @@
           
           <!-- Social Icons -->
           <div class="flex gap-4 items-center">
-            <a href="#facebook" aria-label="Facebook" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#facebook" aria-label="Facebook" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:facebook-rect" class="text-sm"></iconify-icon>
             </a>
-            <a href="#twitter" aria-label="Twitter" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#twitter" aria-label="Twitter" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:twitter-bird" class="text-sm"></iconify-icon>
             </a>
-            <a href="#instagram" aria-label="Instagram" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#instagram" aria-label="Instagram" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:instagram" class="text-sm"></iconify-icon>
             </a>
           </div>

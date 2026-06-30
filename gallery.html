@@ -7,7 +7,14 @@
       background-color: #050508 !important;
       background: #050508 !important;
     }
-  </style>
+  
+    /* Prevent iOS input auto-zoom on mobile */
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="view-transition" content="same-origin">
@@ -134,16 +141,16 @@
 </div>
 <!-- Filter Tab Buttons -->
 <div class="flex flex-wrap gap-3 mb-12 justify-start border-b border-white/5 pb-8">
-<button @click="filter = 'all'" :class="filter === 'all' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200"> All Photos </button>
-<button @click="filter = 'clubhouse'" :class="filter === 'clubhouse' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200"> Clubhouse </button>
-<button @click="filter = 'tournaments'" :class="filter === 'tournaments' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200"> Tournaments </button>
-<button @click="filter = 'masterclasses'" :class="filter === 'masterclasses' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200"> Masterclasses </button>
+<button @click="filter = 'all'" :class="filter === 'all' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-3 md:py-2.5 rounded-full border text-sm md:text-xs font-semibold uppercase tracking-wider transition-all duration-200 min-h-[44px] flex items-center justify-center"> All Photos </button>
+<button @click="filter = 'clubhouse'" :class="filter === 'clubhouse' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-3 md:py-2.5 rounded-full border text-sm md:text-xs font-semibold uppercase tracking-wider transition-all duration-200 min-h-[44px] flex items-center justify-center"> Clubhouse </button>
+<button @click="filter = 'tournaments'" :class="filter === 'tournaments' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-3 md:py-2.5 rounded-full border text-sm md:text-xs font-semibold uppercase tracking-wider transition-all duration-200 min-h-[44px] flex items-center justify-center"> Tournaments </button>
+<button @click="filter = 'masterclasses'" :class="filter === 'masterclasses' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-3 md:py-2.5 rounded-full border text-sm md:text-xs font-semibold uppercase tracking-wider transition-all duration-200 min-h-[44px] flex items-center justify-center"> Masterclasses </button>
 </div>
 <!-- Grid layout of gallery -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
 <!-- Image 1 -->
 <div v-show="filter === 'all' || filter === 'tournaments'" @click="lightboxUrl = 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=1200'" class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900 cursor-zoom-in">
-<img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=600" alt="Tournament Chess Match" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85">
+<img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=600" alt="Tournament Chess Match" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85" decoding="async">
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
 <div>
 <span class="text-[9px] uppercase tracking-widest text-white/60 font-bold block mb-1">Tournaments</span>
@@ -153,7 +160,7 @@
 </div>
 <!-- Image 2 -->
 <div v-show="filter === 'all' || filter === 'clubhouse'" @click="lightboxUrl = 'https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&q=80&w=1200'" class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900 cursor-zoom-in">
-<img src="https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&q=80&w=600" alt="Clubhouse Strategic Board Setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85">
+<img src="https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&q=80&w=600" alt="Clubhouse Strategic Board Setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85" decoding="async" loading="lazy">
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
 <div>
 <span class="text-[9px] uppercase tracking-widest text-white/60 font-bold block mb-1">Clubhouse</span>
@@ -163,7 +170,7 @@
 </div>
 <!-- Image 3 -->
 <div v-show="filter === 'all' || filter === 'masterclasses'" @click="lightboxUrl = 'https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&q=80&w=1200'" class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900 cursor-zoom-in">
-<img src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&q=80&w=600" alt="Endgame Masterclass Analysis" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85">
+<img src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&q=80&w=600" alt="Endgame Masterclass Analysis" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85" decoding="async" loading="lazy">
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
 <div>
 <span class="text-[9px] uppercase tracking-widest text-white/60 font-bold block mb-1">Masterclasses</span>
@@ -173,7 +180,7 @@
 </div>
 <!-- Image 4 -->
 <div v-show="filter === 'all' || filter === 'clubhouse'" @click="lightboxUrl = 'https://images.unsplash.com/photo-1543756070-dd3109556b0e?auto=format&fit=crop&q=80&w=1200'" class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900 cursor-zoom-in">
-<img src="https://images.unsplash.com/photo-1543756070-dd3109556b0e?auto=format&fit=crop&q=80&w=600" alt="Club Members Concentrating" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85">
+<img src="https://images.unsplash.com/photo-1543756070-dd3109556b0e?auto=format&fit=crop&q=80&w=600" alt="Club Members Concentrating" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85" decoding="async" loading="lazy">
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
 <div>
 <span class="text-[9px] uppercase tracking-widest text-white/60 font-bold block mb-1">Clubhouse</span>
@@ -183,7 +190,7 @@
 </div>
 <!-- Image 5 -->
 <div v-show="filter === 'all' || filter === 'masterclasses'" @click="lightboxUrl = 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=1200'" class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900 cursor-zoom-in">
-<img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=600" alt="Training Center Layout" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85">
+<img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=600" alt="Training Center Layout" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85" decoding="async" loading="lazy">
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
 <div>
 <span class="text-[9px] uppercase tracking-widest text-white/60 font-bold block mb-1">Masterclasses</span>
@@ -193,7 +200,7 @@
 </div>
 <!-- Image 6 -->
 <div v-show="filter === 'all' || filter === 'tournaments'" @click="lightboxUrl = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200'" class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900 cursor-zoom-in">
-<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" alt="GM Coaching Portrait" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85">
+<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" alt="GM Coaching Portrait" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85" decoding="async" loading="lazy">
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
 <div>
 <span class="text-[9px] uppercase tracking-widest text-white/60 font-bold block mb-1">Tournaments</span>
@@ -203,7 +210,7 @@
 </div>
 <!-- Image 7 -->
 <div v-show="filter === 'all' || filter === 'clubhouse'" @click="lightboxUrl = 'https://images.unsplash.com/photo-1610633030088-7517c2f0fcfc?auto=format&fit=crop&q=80&w=1200'" class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900 cursor-zoom-in">
-<img src="https://images.unsplash.com/photo-1610633030088-7517c2f0fcfc?auto=format&fit=crop&q=80&w=600" alt="Chess Set Close Up" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85">
+<img src="https://images.unsplash.com/photo-1610633030088-7517c2f0fcfc?auto=format&fit=crop&q=80&w=600" alt="Chess Set Close Up" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85" decoding="async" loading="lazy">
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
 <div>
 <span class="text-[9px] uppercase tracking-widest text-white/60 font-bold block mb-1">Clubhouse</span>
@@ -213,7 +220,7 @@
 </div>
 <!-- Image 8 -->
 <div v-show="filter === 'all' || filter === 'tournaments'" @click="lightboxUrl = 'https://images.unsplash.com/photo-1604948501466-4e9c3e299851?auto=format&fit=crop&q=80&w=1200'" class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900 cursor-zoom-in">
-<img src="https://images.unsplash.com/photo-1604948501466-4e9c3e299851?auto=format&fit=crop&q=80&w=600" alt="Tournament Halls" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85">
+<img src="https://images.unsplash.com/photo-1604948501466-4e9c3e299851?auto=format&fit=crop&q=80&w=600" alt="Tournament Halls" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85" decoding="async" loading="lazy">
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
 <div>
 <span class="text-[9px] uppercase tracking-widest text-white/60 font-bold block mb-1">Tournaments</span>
@@ -223,7 +230,7 @@
 </div>
 <!-- Image 9 -->
 <div v-show="filter === 'all' || filter === 'masterclasses'" @click="lightboxUrl = 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=1200'" class="relative overflow-hidden rounded-2xl silver-border aspect-square group bg-neutral-900 cursor-zoom-in">
-<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=600" alt="Digital Tactical Boards" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85">
+<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=600" alt="Digital Tactical Boards" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:opacity-85" decoding="async" loading="lazy">
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
 <div>
 <span class="text-[9px] uppercase tracking-widest text-white/60 font-bold block mb-1">Masterclasses</span>
@@ -242,7 +249,7 @@
 </iconify-icon>
 </button>
 <div class="relative max-w-5xl max-h-[85vh] overflow-hidden rounded-xl silver-border" @click.stop>
-<img :src="lightboxUrl" alt="Zoomed view" class="max-w-full max-h-[85vh] object-contain">
+<img :src="lightboxUrl" alt="Zoomed view" class="max-w-full max-h-[85vh] object-contain" decoding="async" loading="lazy">
 </div>
 </div>
 <!-- Footer -->
@@ -273,8 +280,8 @@
             </p>
             <!-- Sleek Newsletter Signup -->
             <form @submit.prevent="alert('Thank you for subscribing!')" class="flex items-center gap-2 max-w-sm pt-2">
-              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
-              <button type="submit" class="px-5 py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95">Subscribe</button>
+              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-3 md:py-2.5 text-base md:text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
+              <button type="submit" class="px-5 py-3.5 md:py-2.5 bg-white text-black hover:bg-neutral-200 text-base md:text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95 inline-block text-center">Subscribe</button>
             </form>
           </div>
           
@@ -338,13 +345,13 @@
           
           <!-- Social Icons -->
           <div class="flex gap-4 items-center">
-            <a href="#facebook" aria-label="Facebook" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#facebook" aria-label="Facebook" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:facebook-rect" class="text-sm"></iconify-icon>
             </a>
-            <a href="#twitter" aria-label="Twitter" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#twitter" aria-label="Twitter" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:twitter-bird" class="text-sm"></iconify-icon>
             </a>
-            <a href="#instagram" aria-label="Instagram" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#instagram" aria-label="Instagram" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:instagram" class="text-sm"></iconify-icon>
             </a>
           </div>

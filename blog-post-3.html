@@ -7,7 +7,14 @@
       background-color: #050508 !important;
       background: #050508 !important;
     }
-  </style>
+  
+    /* Prevent iOS input auto-zoom on mobile */
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="view-transition" content="same-origin">
@@ -303,7 +310,7 @@
               <!-- Inline Illustration Image -->
               <div class="my-8">
                 <div class="w-full h-64 overflow-hidden rounded-2xl border border-white/5 mb-3">
-                  <img src="blog-img-6.png" alt="Analyzing Karpov vs Kasparov" class="w-full h-full object-cover grayscale-img">
+                  <img src="blog-img-6.png" alt="Analyzing Karpov vs Kasparov" class="w-full h-full object-cover grayscale-img" decoding="async">
                 </div>
                 <span class="text-xs text-white/40 italic block text-center">Visualizing Karpov's defensive layout and the legendary d3 outpost.</span>
               </div>
@@ -327,7 +334,7 @@
               <div class="space-y-6">
                 <!-- Comment 1 -->
                 <div class="card-glass p-6 rounded-xl flex gap-4 text-left">
-                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120&h=120" alt="Sophia Loren" class="w-8 h-8 rounded-full object-cover flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120&h=120" alt="Sophia Loren" class="w-8 h-8 rounded-full object-cover flex-shrink-0" decoding="async" loading="lazy">
                   <div class="space-y-1">
                     <div class="flex items-center gap-3">
                       <h4 class="text-xs font-bold text-white">Sophia Loren</h4>
@@ -341,7 +348,7 @@
 
                 <!-- Comment 2 -->
                 <div class="card-glass p-6 rounded-xl flex gap-4 text-left">
-                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120" alt="Marcus Aurelius" class="w-8 h-8 rounded-full object-cover flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120" alt="Marcus Aurelius" class="w-8 h-8 rounded-full object-cover flex-shrink-0" decoding="async" loading="lazy">
                   <div class="space-y-1">
                     <div class="flex items-center gap-3">
                       <h4 class="text-xs font-bold text-white">Marcus Aurelius</h4>
@@ -463,8 +470,8 @@
             </p>
             <!-- Sleek Newsletter Signup -->
             <form @submit.prevent="alert('Thank you for subscribing!')" class="flex items-center gap-2 max-w-sm pt-2">
-              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
-              <button type="submit" class="px-5 py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95">Subscribe</button>
+              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-3 md:py-2.5 text-base md:text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
+              <button type="submit" class="px-5 py-3.5 md:py-2.5 bg-white text-black hover:bg-neutral-200 text-base md:text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95 inline-block text-center">Subscribe</button>
             </form>
           </div>
           
@@ -528,13 +535,13 @@
           
           <!-- Social Icons -->
           <div class="flex gap-4 items-center">
-            <a href="#facebook" aria-label="Facebook" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#facebook" aria-label="Facebook" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:facebook-rect" class="text-sm"></iconify-icon>
             </a>
-            <a href="#twitter" aria-label="Twitter" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#twitter" aria-label="Twitter" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:twitter-bird" class="text-sm"></iconify-icon>
             </a>
-            <a href="#instagram" aria-label="Instagram" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#instagram" aria-label="Instagram" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:instagram" class="text-sm"></iconify-icon>
             </a>
           </div>

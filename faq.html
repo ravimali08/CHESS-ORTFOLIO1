@@ -7,7 +7,14 @@
       background-color: #050508 !important;
       background: #050508 !important;
     }
-  </style>
+  
+    /* Prevent iOS input auto-zoom on mobile */
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="view-transition" content="same-origin">
@@ -134,10 +141,10 @@
 </div>
 <!-- FAQ Categories Navigation Tabs -->
 <div class="flex flex-wrap gap-2 mb-12 justify-start border-b border-white/5 pb-8">
-<button @click="activeTab = 'general'; activeQuestion = null" :class="activeTab === 'general' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200"> General Queries </button>
-<button @click="activeTab = 'memberships'; activeQuestion = null" :class="activeTab === 'memberships' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200"> Memberships </button>
-<button @click="activeTab = 'coaching'; activeQuestion = null" :class="activeTab === 'coaching' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200"> Private Coaching </button>
-<button @click="activeTab = 'tournaments'; activeQuestion = null" :class="activeTab === 'tournaments' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200"> Tournaments </button>
+<button @click="activeTab = 'general'; activeQuestion = null" :class="activeTab === 'general' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-3 md:py-2.5 rounded-full border text-sm md:text-xs font-semibold uppercase tracking-wider transition-all duration-200 min-h-[44px] flex items-center justify-center"> General Queries </button>
+<button @click="activeTab = 'memberships'; activeQuestion = null" :class="activeTab === 'memberships' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-3 md:py-2.5 rounded-full border text-sm md:text-xs font-semibold uppercase tracking-wider transition-all duration-200 min-h-[44px] flex items-center justify-center"> Memberships </button>
+<button @click="activeTab = 'coaching'; activeQuestion = null" :class="activeTab === 'coaching' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-3 md:py-2.5 rounded-full border text-sm md:text-xs font-semibold uppercase tracking-wider transition-all duration-200 min-h-[44px] flex items-center justify-center"> Private Coaching </button>
+<button @click="activeTab = 'tournaments'; activeQuestion = null" :class="activeTab === 'tournaments' ? 'bg-white text-black border-white' : 'bg-transparent text-white/60 hover:text-white border-white/10'" class="px-6 py-3 md:py-2.5 rounded-full border text-sm md:text-xs font-semibold uppercase tracking-wider transition-all duration-200 min-h-[44px] flex items-center justify-center"> Tournaments </button>
 </div>
 <!-- Accordions List -->
 <div class="space-y-4 text-left">
@@ -257,8 +264,8 @@
             </p>
             <!-- Sleek Newsletter Signup -->
             <form @submit.prevent="alert('Thank you for subscribing!')" class="flex items-center gap-2 max-w-sm pt-2">
-              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
-              <button type="submit" class="px-5 py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95">Subscribe</button>
+              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-3 md:py-2.5 text-base md:text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
+              <button type="submit" class="px-5 py-3.5 md:py-2.5 bg-white text-black hover:bg-neutral-200 text-base md:text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95 inline-block text-center">Subscribe</button>
             </form>
           </div>
           
@@ -322,13 +329,13 @@
           
           <!-- Social Icons -->
           <div class="flex gap-4 items-center">
-            <a href="#facebook" aria-label="Facebook" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#facebook" aria-label="Facebook" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:facebook-rect" class="text-sm"></iconify-icon>
             </a>
-            <a href="#twitter" aria-label="Twitter" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#twitter" aria-label="Twitter" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:twitter-bird" class="text-sm"></iconify-icon>
             </a>
-            <a href="#instagram" aria-label="Instagram" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#instagram" aria-label="Instagram" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:instagram" class="text-sm"></iconify-icon>
             </a>
           </div>

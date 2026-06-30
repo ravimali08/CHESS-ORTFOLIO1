@@ -7,7 +7,14 @@
       background-color: #050508 !important;
       background: #050508 !important;
     }
-  </style>
+  
+    /* Prevent iOS input auto-zoom on mobile */
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="view-transition" content="same-origin">
@@ -147,7 +154,7 @@
 </div>
 <div class="lg:col-span-5 relative w-full flex flex-col gap-8">
     <div class="relative w-full aspect-[4/3] md:aspect-[4/5] rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden silver-border shadow-2xl">
-      <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=1200" loading="lazy" alt="Strategic Chess" class="w-full h-full object-cover grayscale opacity-60 transition-transform duration-1000 hover:scale-105">
+      <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=1200" loading="eager" alt="Strategic Chess" class="w-full h-full object-cover grayscale opacity-60 transition-transform duration-1000 hover:scale-105" decoding="async">
       <div class="absolute inset-0 bg-gradient-to-t from-[#050508] via-transparent to-transparent">
       </div>
     </div>
@@ -189,7 +196,7 @@
       <div class="group cursor-pointer bg-[#0c0c14] silver-border p-6 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(255,255,255,0.03)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.9),0_0_40px_rgba(255,255,255,0.06)] transition-all duration-500 hover:border-white/20 flex flex-col justify-between">
         <div>
           <div class="relative aspect-[4/5] overflow-hidden mb-6 rounded-[1.5rem]">
-            <img src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&q=80&w=800" loading="lazy" alt="Chess Puzzle" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&q=80&w=800" loading="lazy" alt="Chess Puzzle" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" decoding="async">
             <div class="absolute top-4 left-4 flex items-center gap-2 bg-black/50 border border-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full">
               <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
               <span class="text-[9px] font-bold uppercase tracking-widest text-white/90">Puzzle #452</span>
@@ -210,7 +217,7 @@
       <div class="group cursor-pointer bg-[#0c0c14] silver-border p-6 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(255,255,255,0.03)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.9),0_0_40px_rgba(255,255,255,0.06)] transition-all duration-500 hover:border-white/20 flex flex-col justify-between">
         <div>
           <div class="relative aspect-[4/5] overflow-hidden mb-6 rounded-[1.5rem]">
-            <img src="https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&q=80&w=800" loading="lazy" alt="Masterclass" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&q=80&w=800" loading="lazy" alt="Masterclass" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" decoding="async">
             <div class="absolute top-4 left-4 flex items-center gap-2 bg-black/50 border border-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full">
               <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
               <span class="text-[9px] font-bold uppercase tracking-widest text-white/90">New Masterclass</span>
@@ -231,7 +238,7 @@
       <div class="group cursor-pointer bg-[#0c0c14] silver-border p-6 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_30px_rgba(255,255,255,0.03)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.9),0_0_40px_rgba(255,255,255,0.06)] transition-all duration-500 hover:border-white/20 flex flex-col justify-between md:col-span-2 lg:col-span-1">
         <div>
           <div class="relative aspect-[4/5] overflow-hidden mb-6 rounded-[1.5rem]">
-            <img src="https://images.unsplash.com/photo-1543756070-dd3109556b0e?auto=format&fit=crop&q=80&w=1200" loading="lazy" alt="Leaderboard" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1543756070-dd3109556b0e?auto=format&fit=crop&q=80&w=1200" loading="lazy" alt="Leaderboard" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" decoding="async">
             <div class="absolute top-4 left-4 flex items-center gap-2 bg-black/50 border border-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full">
               <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
               <span class="text-[9px] font-bold uppercase tracking-widest text-white/90">Rankings</span>
@@ -279,7 +286,7 @@ View All Reviews
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"The Grandmaster masterclasses changed how I look at pawn structures. My ELO shot up by 250 points in 3 months!" </p>
 <div class="flex items-center gap-3">
-<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120" alt="John Davis" class="w-10 h-10 rounded-full object-cover grayscale">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120" alt="John Davis" class="w-10 h-10 rounded-full object-cover grayscale" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">John Davis</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">Intermediate Member</span>
@@ -297,7 +304,7 @@ View All Reviews
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"As a parent, I love the progress tracking. My daughter's tactical calculation has improved significantly." </p>
 <div class="flex items-center gap-3">
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120" alt="Sarah Miller" class="w-10 h-10 rounded-full object-cover grayscale">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120" alt="Sarah Miller" class="w-10 h-10 rounded-full object-cover grayscale" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">Sarah Miller</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">Parent of Student</span>
@@ -315,7 +322,7 @@ View All Reviews
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"The tournament arena is highly competitive. Serving daily puzzles helps me warm up for matches." </p>
 <div class="flex items-center gap-3">
-<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120" alt="Robert Kowalski" class="w-10 h-10 rounded-full object-cover grayscale">
+<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120" alt="Robert Kowalski" class="w-10 h-10 rounded-full object-cover grayscale" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">Robert Kowalski</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">FIDE 2100 Member</span>
@@ -333,7 +340,7 @@ View All Reviews
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"Unmatched premium chess coaching environment. The GMs are friendly, analytical, and highly structured." </p>
 <div class="flex items-center gap-3">
-<img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120" alt="Amina Hussein" class="w-10 h-10 rounded-full object-cover grayscale">
+<img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120" alt="Amina Hussein" class="w-10 h-10 rounded-full object-cover grayscale" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">Amina Hussein</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">Club Elite Member</span>
@@ -352,7 +359,7 @@ View All Reviews
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"The Grandmaster masterclasses changed how I look at pawn structures. My ELO shot up by 250 points in 3 months!" </p>
 <div class="flex items-center gap-3">
-<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120" alt="John Davis" class="w-10 h-10 rounded-full object-cover grayscale">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120" alt="John Davis" class="w-10 h-10 rounded-full object-cover grayscale" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">John Davis</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">Intermediate Member</span>
@@ -370,7 +377,7 @@ View All Reviews
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"As a parent, I love the progress tracking. My daughter's tactical calculation has improved significantly." </p>
 <div class="flex items-center gap-3">
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120" alt="Sarah Miller" class="w-10 h-10 rounded-full object-cover grayscale">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120" alt="Sarah Miller" class="w-10 h-10 rounded-full object-cover grayscale" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">Sarah Miller</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">Parent of Student</span>
@@ -388,7 +395,7 @@ View All Reviews
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"The tournament arena is highly competitive. Serving daily puzzles helps me warm up for matches." </p>
 <div class="flex items-center gap-3">
-<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120" alt="Robert Kowalski" class="w-10 h-10 rounded-full object-cover grayscale">
+<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120" alt="Robert Kowalski" class="w-10 h-10 rounded-full object-cover grayscale" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">Robert Kowalski</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">FIDE 2100 Member</span>
@@ -406,7 +413,7 @@ View All Reviews
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"Unmatched premium chess coaching environment. The GMs are friendly, analytical, and highly structured." </p>
 <div class="flex items-center gap-3">
-<img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120" alt="Amina Hussein" class="w-10 h-10 rounded-full object-cover grayscale">
+<img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120" alt="Amina Hussein" class="w-10 h-10 rounded-full object-cover grayscale" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">Amina Hussein</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">Club Elite Member</span>
@@ -444,8 +451,8 @@ View All Reviews
             </p>
             <!-- Sleek Newsletter Signup -->
             <form @submit.prevent="alert('Thank you for subscribing!')" class="flex items-center gap-2 max-w-sm pt-2">
-              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
-              <button type="submit" class="px-5 py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95">Subscribe</button>
+              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-3 md:py-2.5 text-base md:text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
+              <button type="submit" class="px-5 py-3.5 md:py-2.5 bg-white text-black hover:bg-neutral-200 text-base md:text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95 inline-block text-center">Subscribe</button>
             </form>
           </div>
           
@@ -509,13 +516,13 @@ View All Reviews
           
           <!-- Social Icons -->
           <div class="flex gap-4 items-center">
-            <a href="#facebook" aria-label="Facebook" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#facebook" aria-label="Facebook" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:facebook-rect" class="text-sm"></iconify-icon>
             </a>
-            <a href="#twitter" aria-label="Twitter" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#twitter" aria-label="Twitter" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:twitter-bird" class="text-sm"></iconify-icon>
             </a>
-            <a href="#instagram" aria-label="Instagram" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#instagram" aria-label="Instagram" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:instagram" class="text-sm"></iconify-icon>
             </a>
           </div>

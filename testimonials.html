@@ -7,7 +7,14 @@
       background-color: #050508 !important;
       background: #050508 !important;
     }
-  </style>
+  
+    /* Prevent iOS input auto-zoom on mobile */
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="view-transition" content="same-origin">
@@ -159,7 +166,7 @@
 </div>
 <div class="lg:w-5/12 w-full max-w-sm">
 <div class="aspect-square bg-neutral-900 rounded-3xl overflow-hidden silver-border">
-<img src="https://images.unsplash.com/photo-1543756070-dd3109556b0e?auto=format&fit=crop&q=80&w=600" alt="Junior player concentrating" class="w-full h-full object-cover">
+<img src="https://images.unsplash.com/photo-1543756070-dd3109556b0e?auto=format&fit=crop&q=80&w=600" alt="Junior player concentrating" class="w-full h-full object-cover" decoding="async">
 </div>
 </div>
 </div>
@@ -188,7 +195,7 @@
 </div>
 <div class="lg:w-5/12 w-full max-w-sm">
 <div class="aspect-square bg-neutral-900 rounded-3xl overflow-hidden silver-border">
-<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" alt="Adult player analyzing board" class="w-full h-full object-cover">
+<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" alt="Adult player analyzing board" class="w-full h-full object-cover" decoding="async" loading="lazy">
 </div>
 </div>
 </div>
@@ -215,7 +222,7 @@
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"The Grandmaster masterclasses changed how I look at pawn structures. My ELO shot up by 250 points in 3 months!" </p>
 <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120" alt="John Davis" class="w-10 h-10 rounded-full object-cover">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120" alt="John Davis" class="w-10 h-10 rounded-full object-cover" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">John Davis</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">Intermediate Member</span>
@@ -233,7 +240,7 @@
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"As a parent, I love the progress tracking. My daughter's tactical calculation has improved significantly." </p>
 <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120" alt="Sarah Miller" class="w-10 h-10 rounded-full object-cover">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120" alt="Sarah Miller" class="w-10 h-10 rounded-full object-cover" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">Sarah Miller</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">Parent of Student</span>
@@ -251,7 +258,7 @@
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"The tournament arena is highly competitive. Serving daily puzzles helps me warm up for matches." </p>
 <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120" alt="Robert Kowalski" class="w-10 h-10 rounded-full object-cover">
+<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120" alt="Robert Kowalski" class="w-10 h-10 rounded-full object-cover" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">Robert Kowalski</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">FIDE 2100 Member</span>
@@ -269,7 +276,7 @@
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"Unmatched premium chess coaching environment. The GMs are friendly, analytical, and highly structured." </p>
 <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-<img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120" alt="Amina Hussein" class="w-10 h-10 rounded-full object-cover">
+<img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120" alt="Amina Hussein" class="w-10 h-10 rounded-full object-cover" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">Amina Hussein</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">Club Elite Member</span>
@@ -287,7 +294,7 @@
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"The focus on chess psychology is what set Royal Knights apart. I no longer blunder under time trouble." </p>
 <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=120&h=120" alt="Thomas Lang" class="w-10 h-10 rounded-full object-cover">
+<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=120&h=120" alt="Thomas Lang" class="w-10 h-10 rounded-full object-cover" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">Thomas Lang</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">Active Candidate</span>
@@ -305,7 +312,7 @@
 </div>
 <p class="text-sm text-white/60 font-light italic mb-6 leading-relaxed">"Every session is packed with positional details. The lesson database alone is worth the membership fee." </p>
 <div class="flex items-center gap-3 pt-4 border-t border-white/5">
-<img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=120&h=120" alt="Michael Wong" class="w-10 h-10 rounded-full object-cover">
+<img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=120&h=120" alt="Michael Wong" class="w-10 h-10 rounded-full object-cover" decoding="async" loading="lazy">
 <div>
 <h4 class="text-xs font-bold text-white">Michael Wong</h4>
 <span class="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5">Platinum Member</span>
@@ -345,8 +352,8 @@
             </p>
             <!-- Sleek Newsletter Signup -->
             <form @submit.prevent="alert('Thank you for subscribing!')" class="flex items-center gap-2 max-w-sm pt-2">
-              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
-              <button type="submit" class="px-5 py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95">Subscribe</button>
+              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-3 md:py-2.5 text-base md:text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
+              <button type="submit" class="px-5 py-3.5 md:py-2.5 bg-white text-black hover:bg-neutral-200 text-base md:text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95 inline-block text-center">Subscribe</button>
             </form>
           </div>
           
@@ -410,13 +417,13 @@
           
           <!-- Social Icons -->
           <div class="flex gap-4 items-center">
-            <a href="#facebook" aria-label="Facebook" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#facebook" aria-label="Facebook" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:facebook-rect" class="text-sm"></iconify-icon>
             </a>
-            <a href="#twitter" aria-label="Twitter" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#twitter" aria-label="Twitter" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:twitter-bird" class="text-sm"></iconify-icon>
             </a>
-            <a href="#instagram" aria-label="Instagram" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#instagram" aria-label="Instagram" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:instagram" class="text-sm"></iconify-icon>
             </a>
           </div>

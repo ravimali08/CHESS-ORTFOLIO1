@@ -7,7 +7,14 @@
       background-color: #050508 !important;
       background: #050508 !important;
     }
-  </style>
+  
+    /* Prevent iOS input auto-zoom on mobile */
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="view-transition" content="same-origin">
@@ -133,7 +140,7 @@
 <div class="lg:col-span-8 flex flex-col gap-12">
 <div class="bg-white/5 silver-border rounded-[2rem] p-4 md:p-10">
 <div class="relative aspect-square w-full max-w-[600px] mx-auto overflow-hidden rounded-xl silver-border shadow-2xl">
-<img src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&q=80&w=1200" alt="Chess Board" class="w-full h-full object-cover opacity-80">
+<img src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&q=80&w=1200" alt="Chess Board" class="w-full h-full object-cover opacity-80" decoding="async">
 </div>
 <div class="mt-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
 <div class="flex flex-col gap-2">
@@ -188,7 +195,7 @@
 <div class="flex flex-col gap-4">
 <div class="puzzle-card group silver-border bg-white/5 p-4 rounded-2xl cursor-pointer flex gap-4 items-center">
 <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 group-hover:-0 transition-all">
-<img src="https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+<img src="https://images.unsplash.com/photo-1523875194681-bedd468c58bf?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover" decoding="async" loading="lazy">
 </div>
 <div class="flex flex-col gap-1">
 <span class="text-[9px] font-bold tracking-widest text-white/40 uppercase">Puzzle #841</span>
@@ -198,7 +205,7 @@
 </div>
 <div class="puzzle-card group silver-border bg-white/5 p-4 rounded-2xl cursor-pointer flex gap-4 items-center">
 <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 group-hover:-0 transition-all">
-<img src="https://images.unsplash.com/photo-1543756070-dd3109556b0e?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+<img src="https://images.unsplash.com/photo-1543756070-dd3109556b0e?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover" decoding="async" loading="lazy">
 </div>
 <div class="flex flex-col gap-1">
 <span class="text-[9px] font-bold tracking-widest text-white/40 uppercase">Puzzle #840</span>
@@ -208,7 +215,7 @@
 </div>
 <div class="puzzle-card group silver-border bg-white/5 p-4 rounded-2xl cursor-pointer flex gap-4 items-center">
 <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 group-hover:-0 transition-all">
-<img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+<img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover" decoding="async" loading="lazy">
 </div>
 <div class="flex flex-col gap-1">
 <span class="text-[9px] font-bold tracking-widest text-white/40 uppercase">Puzzle #839</span>
@@ -224,7 +231,7 @@
 <p class="text-sm text-white/50 leading-relaxed italic">"Tactics is what you do when there is something to do; strategy is what you do when there is nothing to do."</p>
 <div class="mt-6 flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-white/10 overflow-hidden">
-<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" class="w-full h-full object-cover">
+<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" class="w-full h-full object-cover" decoding="async" loading="lazy">
 </div>
 <div>
 <span class="text-xs font-bold block">GM Alex Petrov</span>
@@ -263,8 +270,8 @@
             </p>
             <!-- Sleek Newsletter Signup -->
             <form @submit.prevent="alert('Thank you for subscribing!')" class="flex items-center gap-2 max-w-sm pt-2">
-              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
-              <button type="submit" class="px-5 py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95">Subscribe</button>
+              <input type="email" placeholder="Enter your email" required v-model="email" class="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-3 md:py-2.5 text-base md:text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/40 transition-colors">
+              <button type="submit" class="px-5 py-3.5 md:py-2.5 bg-white text-black hover:bg-neutral-200 text-base md:text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-200 active:scale-95 inline-block text-center">Subscribe</button>
             </form>
           </div>
           
@@ -328,13 +335,13 @@
           
           <!-- Social Icons -->
           <div class="flex gap-4 items-center">
-            <a href="#facebook" aria-label="Facebook" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#facebook" aria-label="Facebook" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:facebook-rect" class="text-sm"></iconify-icon>
             </a>
-            <a href="#twitter" aria-label="Twitter" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#twitter" aria-label="Twitter" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:twitter-bird" class="text-sm"></iconify-icon>
             </a>
-            <a href="#instagram" aria-label="Instagram" class="w-8 h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
+            <a href="#instagram" aria-label="Instagram" class="w-11 h-11 md:w-8 md:h-8 rounded-full border border-white/5 bg-white/5 hover:bg-white hover:text-black flex items-center justify-center text-white transition-all duration-300">
               <iconify-icon icon="brandico:instagram" class="text-sm"></iconify-icon>
             </a>
           </div>
