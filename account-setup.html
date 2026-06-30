@@ -297,31 +297,28 @@
             </form>
           </div>
           
-          <!-- Column 2: Navigation Links (Col-span-2) -->
+                    <!-- Column 2: Navigation Links (Col-span-2) -->
           <div class="lg:col-span-2 space-y-4">
             <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">Platform</h4>
             <ul class="space-y-2.5 text-[12px] font-light">
               <li><a href="index.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Home</a></li>
               <li><a href="about.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">About</a></li>
-              <li><a href="coaches.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Coaches</a></li>
-              <li><a href="programs.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Programs</a></li>
-              <li><a href="membership.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Membership</a></li>
-              <li><a href="testimonials.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Testimonials</a></li>
+              <li><a href="events.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Events</a></li>
+              <li><a href="tournaments.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Tournaments</a></li>
             </ul>
           </div>
           
           <!-- Column 3: Arena & Resources (Col-span-2) -->
           <div class="lg:col-span-2 space-y-4">
-            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">Arena</h4>
+            <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">More Pages</h4>
             <ul class="space-y-2.5 text-[12px] font-light">
-              <li><a href="tournaments.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Tournaments</a></li>
-              <li><a href="events.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Events</a></li>
-              <li><a href="puzzles.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Daily Puzzles</a></li>
-              <li><a href="gallery.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Gallery</a></li>
+              <li><a href="membership.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Membership</a></li>
+              <li><a href="coaches.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Coaches</a></li>
               <li><a href="blog.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Blog</a></li>
+              <li><a href="contact.html" class="text-white/50 hover:text-white transition-colors hover:underline decoration-white/20 underline-offset-4">Contact</a></li>
             </ul>
           </div>
-          
+
           <!-- Column 4: Contact & Details (Col-span-3) -->
           <div class="lg:col-span-3 space-y-4">
             <h4 class="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40">Contact Info</h4>
@@ -381,6 +378,7 @@
 <script>let mobileMenuOpen = false; const initializeMobileMenu = () => { const menu = document.getElementById('mobile-menu'); const openBtn = document.getElementById('open-menu-btn'); const closeBtn = document.getElementById('close-menu-btn'); const body = document.body; if (!menu || !openBtn) return; menu.style.display = 'none'; const updateMenuDisplay = () => { if (mobileMenuOpen) { menu.style.display = 'flex'; menu.offsetHeight; menu.classList.add('open'); body.classList.add('overflow-hidden'); } else { menu.classList.remove('open'); body.classList.remove('overflow-hidden'); setTimeout(() => { if (!mobileMenuOpen) menu.style.display = 'none'; }, 400); } }; const toggleMenu = (state) => { mobileMenuOpen = state; updateMenuDisplay(); }; openBtn.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(true); }); if (closeBtn) { closeBtn.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(false); }); } menu.addEventListener('click', (e) => { if (e.target === menu) toggleMenu(false); }); const menuLinkIds = ['mobile-home', 'mobile-membership', 'mobile-events', 'mobile-news', 'mobile-contact', 'mobile-join-btn']; menuLinkIds.forEach(id => { const link = document.getElementById(id); if (link) link.addEventListener('click', () => toggleMenu(false)); }); }; document.addEventListener('DOMContentLoaded', () => { setTimeout(initializeMobileMenu, 100); });</script>
 </body>
 </html>
+
 
 
 
