@@ -1,0 +1,7 @@
+export default function handler(req, res) {
+  res.status(200).json({
+    status: 'success',
+    message: 'Backend is running correctly.',
+    environment: 'Vercel Serverless'
+  });
+}
